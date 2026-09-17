@@ -1231,7 +1231,7 @@
             .stat-box-ss strong { font-size: 1rem; margin-bottom: 2px; }
             .stat-box-ss span { line-height: 1.1; display: block; margin-top: 2px; font-size: 0.55rem; }
 
-            .clients-row { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+            .clients-row { grid-template-columns: repeat(2, 1fr); gap: 10px; }
             .client-tile { height: 75px; padding: 15px; border-radius: 12px; }
             .client-default h6 { display: none; } /* Hides the company name */
             .client-logo { height: 40px; margin: 0 auto; }
