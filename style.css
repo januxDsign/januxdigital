@@ -1302,7 +1302,7 @@
             .hero-stats { grid-template-columns: repeat(2, 1fr); }
             
             /* Ultra-Compact Clients */
-            .client-tile { height: 70px; padding: 30px; }
+            .client-tile { height: 70px; padding: 10px; }
             .client-logo { height: 30px; }
             .client-default h4 { font-size: 0.75rem; }
 
