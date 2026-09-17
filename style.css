@@ -1297,7 +1297,36 @@
         }
         
         @media (max-width: 480px) {
+            /* Keeps Hero Stats from overflowing on very narrow phones */
             .hero-stats { grid-template-columns: repeat(2, 1fr); }
+            
+            /* Ultra-Compact Clients */
             .client-tile { height: 70px; padding: 10px; }
             .client-logo { height: 30px; }
+            .client-default h4 { font-size: 0.75rem; }
+
+            /* --- ULTRA-COMPACT MODAL TEXT FOR IPHONES --- */
+            .text-modal-content { 
+                padding: 25px 15px !important; /* Reduces side padding to give text more horizontal room */
+            }
+            .text-modal-content h2, #footer-xpop-body h2 { 
+                font-size: 1.35rem !important; /* Shrunk so it fits on 1-2 lines maximum */
+                margin-bottom: 15px !important; 
+            }
+            .text-modal-content h3, #footer-xpop-body h3 { 
+                font-size: 0.7rem !important; 
+                margin-top: 20px !important; 
+                margin-bottom: 10px !important;
+            }
+            .text-modal-content h4, #footer-xpop-body h4 { 
+                font-size: 0.85rem !important; 
+                margin-top: 15px !important; 
+                margin-bottom: 5px !important;
+            }
+            .text-modal-content p, #footer-xpop-body p, 
+            .text-modal-content li, #footer-xpop-body li { 
+                font-size: 0.75rem !important; 
+                line-height: 1.5 !important; 
+                margin-bottom: 10px !important;
+            }
         }
