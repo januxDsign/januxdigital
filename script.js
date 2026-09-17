@@ -378,17 +378,18 @@ function initAllScripts() {
     });
 
     // 2. Continuous Logo Ticker
+    
     var logoSwiper = new Swiper(".logoSwiper", {
-        slidesPerView: 2, /* FIX: Shows 4 logos at a time on mobile */
-        spaceBetween: 10, /* Slightly reduced space so 4 fit nicely on small screens */
+        slidesPerView: 3, /* FIX: Dropped from 4 to 3 for tiny mobile screens */
+        spaceBetween: 15, /* Tighter spacing for mobile */
         loop: true,
         speed: 5000,
         autoplay: { delay: 0, disableOnInteraction: false },
         allowTouchMove: false,
         breakpoints: {
-            640: { slidesPerView: 2, spaceBetween: 10 },
-            768: { slidesPerView: 4, spaceBetween: 30 },
-            1024: { slidesPerView: 6, spaceBetween: 30 },
+            640: { slidesPerView: 4, spaceBetween: 20 }, /* Tablets show 4 */
+            768: { slidesPerView: 5, spaceBetween: 30 }, /* Small Desktops show 5 */
+            1024: { slidesPerView: 6, spaceBetween: 30 }, /* Large screens show 6 */
         },
     });
 
