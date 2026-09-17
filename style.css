@@ -1260,6 +1260,25 @@
             .footer-v-divider { width: 100%; height: 1px; }
             .text-modal-content { padding: 30px 20px; }
 
+            /* --- Shrink Footer Modal Text on Mobile --- */
+            .text-modal-content h2 { 
+                font-size: 1.6rem !important; /* Shrunk main title */
+                margin-bottom: 20px !important; 
+            }
+            .text-modal-content h3 { 
+                font-size: 0.55rem !important; /* Shrunk category headers */
+                margin-top: 25px !important; 
+            }
+            .text-modal-content h4 { 
+                font-size: 0.75rem !important; /* Shrunk question titles */
+                margin-top: 15px !important; 
+            }
+            .text-modal-content p, 
+            .text-modal-content li { 
+                font-size: 0.6rem !important; /* Shrunk paragraph answers */
+                line-height: 1.6 !important; 
+            }
+
             .hamburger { display: flex; margin-left: auto; z-index: 1002; }
             nav { display: contents; }
             nav ul {
