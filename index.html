@@ -30,21 +30,6 @@
             
             <div style="display: flex; align-items: center; gap: 20px;">
 
-                <!-- Custom Language Dropdown -->
-            <div class="lang-wrapper">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                </svg>
-                <select id="lang-switch" onchange="changeLanguage(this.value)">
-                    <option value="en">EN</option>
-                    <option value="de">DE</option>
-                    <option value="es">ES</option>
-                    <option value="fr">FR</option>
-                    <option value="it">IT</option>
-                </select>
-            </div>
-
-            
                 <!-- Sliding Theme Toggle -->
                 <button id="themeToggle" class="theme-switch" aria-label="Toggle Theme">
                     <span class="switch-slider"></span>
@@ -94,17 +79,17 @@
                 <div class="hero-stats">
                     <div class="hero-stat-box">
                         <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
-                        <h3><span class="counter" data-target="1795">0</span></h3>
+                        <h3><span class="counter" data-target="1795">0</span>+</h3>
                         <p>Projects<br>Completed</p>
                     </div>
                     <div class="hero-stat-box">
                         <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></div>
-                        <h3><span class="counter" data-target="580">0</span></h3>
+                        <h3><span class="counter" data-target="580">0</span>+</h3>
                         <p>Clients<br>Happy</p>
                     </div>
                     <div class="hero-stat-box">
                         <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg></div>
-                        <h3><span class="counter" data-target="4">0</span>.4<span class="star">★</span></h3>
+                        <h3><span class="counter" data-target="4">0</span>.9<span class="star">★</span></h3>
                         <p>Average<br>Satisfaction</p>
                     </div>
                     <div class="hero-stat-box">
@@ -120,7 +105,7 @@
                     <div class="hero-stat-box">
                         <div class="stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
                         <h3><span class="counter" data-target="4">0</span>+</h3>
-                        <p>Teammates<br>Managed</p>
+                        <p>Language<br>Managed</p>
                     </div>
                 </div>
             </div>
@@ -965,7 +950,7 @@
             </a>
         </div>
         
-        <button class="float-main-btn" onclick="toggleFloatingContact()">
+        <button class="float-main-btn" onclick="toggleFloatingContact()">     
             <span class="float-text" style="color: #1d3317;">Let's Talk</span>
             <span class="float-close">✕</span>
         </button>
@@ -983,7 +968,9 @@
     <div class="chatbot-window" id="chatbot-window">
         <div class="chatbot-header">
             <div class="chatbot-header-info">
-                <div class="chatbot-avatar">AI</div>
+                <div class="chatbot-avatar">
+                    <img src="assets/botico.svg" alt="Janux AI" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
                 <div>
                     <h4>Janux Assistant</h4>
                     <span class="chatbot-status">Online</span>
@@ -1102,14 +1089,7 @@
 </button>
 </div>
 
-<!-- Hidden Google Translate Engine -->
-    <div id="google_translate_element" style="display:none;"></div>
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
-        }
-    </script>
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+>
     
 </body>
 </html>

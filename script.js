@@ -276,7 +276,19 @@ function closeFooterXpop(event) {
 }
 
 function toggleFloatingContact() {
-    document.getElementById('floating-contact').classList.toggle('active');
+    const contactWrap = document.getElementById('floating-contact');
+    const chatbotWrap = document.getElementById('chatbot-widget');
+    
+    contactWrap.classList.toggle('active');
+    
+    // Push the chatbot up if the contact menu is opened
+    if (chatbotWrap) {
+        if (contactWrap.classList.contains('active')) {
+            chatbotWrap.classList.add('contact-expanded');
+        } else {
+            chatbotWrap.classList.remove('contact-expanded');
+        }
+    }
 }
 
 function toggleAccordion(btn) {
@@ -311,13 +323,22 @@ window.addEventListener("scroll", () => {
         const chatbotWidget = document.getElementById("chatbot-widget");
         
         if (ctaOffset < triggerPoint) {
-            // Hide the Let's Talk button and slide the chatbot to the corner
+            // Hide the Let's Talk button and drop the chatbot into the corner
             floatingContact.classList.add("hide-near-bottom");
-            if(chatbotWidget) chatbotWidget.classList.add("shift-right");
+            if(chatbotWidget) {
+                chatbotWidget.classList.add("shift-down");
+                chatbotWidget.classList.remove("contact-expanded"); // Prevent overlap
+            }
         } else {
-            // Bring the Let's Talk button back and push the chatbot to the left
+            // Bring Let's Talk back and push chatbot up
             floatingContact.classList.remove("hide-near-bottom");
-            if(chatbotWidget) chatbotWidget.classList.remove("shift-right");
+            if(chatbotWidget) {
+                chatbotWidget.classList.remove("shift-down");
+                // Re-apply height if the contact menu was left open
+                if (floatingContact.classList.contains('active')) {
+                    chatbotWidget.classList.add('contact-expanded');
+                }
+            }
         }
     }
 });
@@ -492,18 +513,3 @@ async function handleChatSubmit(event) {
     }
 
 }
-
-  // ==========================================
-    // 6. LANGUAGE TRANSLATION
-    // ==========================================
-    function changeLanguage(langCode) {
-        const selectField = document.querySelector(".goog-te-combo");
-        
-        if (selectField) {
-            selectField.value = langCode;
-            // The { bubbles: true } is CRITICAL for Google to detect the change
-            selectField.dispatchEvent(new Event('change', { bubbles: true }));
-        } else {
-            console.error("Google Translate script hasn't loaded yet.");
-        }
-    }

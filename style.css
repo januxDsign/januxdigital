@@ -149,49 +149,7 @@ header {
     align-items: center;
 }
 
-/* =========================================
-   LANGUAGE SELECTOR
-========================================= */
-.lang-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--toggle-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 30px;
-    padding: 6px 12px;
-    color: var(--text-main);
-    transition: background 0.4s ease;
-}
 
-.lang-wrapper svg {
-    color: var(--text-muted);
-}
-
-.lang-wrapper select {
-    background: transparent;
-    color: var(--text-main);
-    border: none;
-    font-size: 0.75rem;
-    font-weight: 600;
-    cursor: pointer;
-    outline: none;
-    appearance: none;
-    -webkit-appearance: none;
-    text-align: center;
-}
-
-.lang-wrapper select option {
-    background: var(--bg-main);
-    color: var(--text-main);
-}
-
-/* HIDE GOOGLE TRANSLATE DEFAULT UI */
-.goog-te-banner-frame.skiptranslate { display: none !important; }
-body { top: 0px !important; }
-.goog-tooltip { display: none !important; }
-.goog-tooltip:hover { display: none !important; }
-.goog-text-highlight { background-color: transparent !important; border: none !important; box-shadow: none !important; }
 
 /* Smart Logo Swapping */
 .logo img { height: 40px; transition: opacity 0.3s ease; }
@@ -531,7 +489,7 @@ nav a:hover::after, nav a.active::after {
 }
 
 .testimonial-card {
-    background: var(--bg-main); 
+    background: var(--bg-main) transparent 5%; 
     border: 1px solid rgba(91, 205, 90, 0.2);
     border-radius: 12px;
     padding: 20px;
@@ -1606,15 +1564,20 @@ nav a:hover::after, nav a.active::after {
 ========================================= */
 .chatbot-wrapper {
     position: fixed;
-    bottom: 30px;
-    right: 175px; /* Placed exactly to the left of the Let's Talk button */
+    bottom: 95px; /* Sits exactly above the Let's Talk button */
+    right: 30px;  /* Aligned to the right margin */
     z-index: 9900;
-    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s ease; /* Smooth slide animation */
+    transition: bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Smooth vertical sliding */
 }
 
-/* The class added by JS to slide it into the corner */
-.chatbot-wrapper.shift-right {
-    right: 30px; 
+/* --- When Contact Menu is Expanded --- */
+.chatbot-wrapper.contact-expanded {
+    bottom: 220px; /* Pushes up above the expanded Email & WhatsApp buttons */
+}
+
+/* --- When near footer (Let's Talk hides) --- */
+.chatbot-wrapper.shift-down {
+    bottom: 30px; /* Drops down to take over the corner space */
 }
 
 .chatbot-toggle-btn {
@@ -1769,17 +1732,16 @@ nav a:hover::after, nav a.active::after {
 }
 
 .chatbot-avatar {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(91, 205, 90, 0.15);
+    width: 40px;
+    height: 40px;
+    
+    background: rgba(92, 205, 90, 0);
     color: var(--accent-green);
-    border: 1px solid var(--accent-green);
+    
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: 700;
-    font-size: 0.75rem;
+    
 }
 
 .chatbot-header-info h4 {
@@ -1893,22 +1855,7 @@ nav a:hover::after, nav a.active::after {
     transform: scale(1.08);
 }
 
-@media (max-width: 968px) {
-    .chatbot-wrapper {
-        right: 85px;
-        bottom: 15px;
-    }
-    .chatbot-toggle-btn {
-        width: 44px;
-        height: 44px;
-    }
-    .chatbot-window {
-        bottom: 55px;
-        right: -60px;
-        width: 300px;
-        height: 400px;
-    }
-}
+
 
 
 /* =========================================
@@ -2094,8 +2041,8 @@ nav a:hover::after, nav a.active::after {
     .accordion-category { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(91, 205, 90, 0.2); border-radius: 12px; overflow: hidden; }
     .accordion-header { width: 100%; padding: 15px 20px; background: transparent; border: none; color: var(--text-main); font-size: 0.9rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; text-align: left; cursor: pointer; outline: none; }
     .accordion-header.active { background: rgba(91, 205, 90, 0.1); color: var(--accent-green); }
-    .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(0, 0, 0, 0.2); }
-    .mobile-service-item { padding: 12px 20px; color: var(--text-muted); font-size: 0.8rem; border-bottom: 1px solid rgba(255, 255, 255, 0.05); cursor: pointer; }
+    .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: rgba(214, 214, 214, 0.062); }
+    .mobile-service-item { padding: 12px 20px; color: var(--text-muted); font-size: 0.8rem; border-bottom: 1px solid rgba(65, 65, 65, 0.05); cursor: pointer; }
     .mobile-service-item:last-child { border-bottom: none; }
     .mobile-service-item:hover { color: var(--accent-green); }
 
@@ -2184,29 +2131,26 @@ nav a:hover::after, nav a.active::after {
     .floating-contact-wrapper { bottom: 15px; right: 15px; transform: scale(0.85); transform-origin: bottom right; }
     .scroll-to-top { bottom: 15px; left: 15px; width: 40px; height: 40px; font-size: 1rem; }
 
-    /* The Wrapper and Button */
     .chatbot-wrapper {
-        right: 135px; /* Left of the mobile Let's Talk button */
-        bottom: 15px;
+        right: 15px;
+        bottom: 80px; 
     }
-    .chatbot-wrapper.shift-right {
-        right: 15px; /* Mobile corner position */
+    .chatbot-wrapper.contact-expanded {
+        bottom: 200px; /* Pushes up on mobile */
     }
-    .chatbot-toggle-btn {
-        width: 45px;
-        height: 45px;
+    .chatbot-wrapper.shift-down {
+        bottom: 15px; /* Drops down on mobile */
     }
     
-    /* The Chat Window Fix */
     .chatbot-window {
-        position: fixed;      /* Break free from the button */
-        bottom: 75px;         /* Sit safely above the toggle button */
-        right: 15px;          /* 15px margin from the right edge */
-        left: 15px;           /* 15px margin from the left edge */
-        width: auto;          /* Fill the space between left and right */
-        max-width: none;      /* Remove desktop constraints */
+        position: absolute;           /* Attaches the window to the moving button */
+        bottom: 65px;                 /* Sits just above the chatbot icon */
+        right: 0;                     /* Aligns to the right edge of the button */
+        left: auto;                   /* Clears previous fixed positioning */
+        width: calc(100vw - 30px);    /* Full screen width minus 15px margins on each side */
+        max-width: 380px;             /* Prevents it from getting too wide on tablets */
         height: 420px;        
-        max-height: 70vh;     /* Ensure it never gets taller than the screen */
+        max-height: 65vh;             /* Leaves room for the contact buttons below it */
         transform-origin: bottom right;
     }
 
