@@ -493,15 +493,19 @@ async function handleChatSubmit(event) {
 
 
     // ==========================================
-// 6. LANGUAGE TRANSLATION
-// ==========================================
-function changeLanguage(langCode) {
-    const selectField = document.querySelector("#google_translate_element select");
-    if (selectField) {
-        selectField.value = langCode;
-        selectField.dispatchEvent(new Event('change'));
+    // 6. LANGUAGE TRANSLATION
+    // ==========================================
+    function changeLanguage(langCode) {
+        const selectField = document.querySelector(".goog-te-combo");
+        
+        if (selectField) {
+            selectField.value = langCode;
+            // The { bubbles: true } is CRITICAL for Google to detect the change
+            selectField.dispatchEvent(new Event('change', { bubbles: true }));
+        } else {
+            console.error("Google Translate script hasn't loaded yet.");
+        }
     }
-}
 
 
 }
