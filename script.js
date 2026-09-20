@@ -490,4 +490,18 @@ async function handleChatSubmit(event) {
         document.getElementById('bot-typing')?.remove();
         appendChatBubble("I'm currently offline. Please email januxdig@gmail.com directly.", 'bot');
     }
+
+
+    // ==========================================
+// 6. LANGUAGE TRANSLATION
+// ==========================================
+function changeLanguage(langCode) {
+    const selectField = document.querySelector("#google_translate_element select");
+    if (selectField) {
+        selectField.value = langCode;
+        selectField.dispatchEvent(new Event('change'));
+    }
+}
+
+
 }

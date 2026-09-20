@@ -149,11 +149,57 @@ header {
     align-items: center;
 }
 
+/* =========================================
+   LANGUAGE SELECTOR
+========================================= */
+.lang-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--toggle-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    padding: 6px 12px;
+    color: var(--text-main);
+    transition: background 0.4s ease;
+}
+
+.lang-wrapper svg {
+    color: var(--text-muted);
+}
+
+.lang-wrapper select {
+    background: transparent;
+    color: var(--text-main);
+    border: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    text-align: center;
+}
+
+.lang-wrapper select option {
+    background: var(--bg-main);
+    color: var(--text-main);
+}
+
+/* HIDE GOOGLE TRANSLATE DEFAULT UI */
+.goog-te-banner-frame.skiptranslate { display: none !important; }
+body { top: 0px !important; }
+.goog-tooltip { display: none !important; }
+.goog-tooltip:hover { display: none !important; }
+.goog-text-highlight { background-color: transparent !important; border: none !important; box-shadow: none !important; }
+
 /* Smart Logo Swapping */
 .logo img { height: 40px; transition: opacity 0.3s ease; }
 .logo-light { display: none; }
 [data-theme="light"] .logo-dark { display: none; }
 [data-theme="light"] .logo-light { display: block; }
+
+
 
 /* Theme Toggle */
 .theme-switch {
@@ -2138,6 +2184,7 @@ nav a:hover::after, nav a.active::after {
     .floating-contact-wrapper { bottom: 15px; right: 15px; transform: scale(0.85); transform-origin: bottom right; }
     .scroll-to-top { bottom: 15px; left: 15px; width: 40px; height: 40px; font-size: 1rem; }
 
+    /* The Wrapper and Button */
     .chatbot-wrapper {
         right: 135px; /* Left of the mobile Let's Talk button */
         bottom: 15px;
@@ -2148,6 +2195,19 @@ nav a:hover::after, nav a.active::after {
     .chatbot-toggle-btn {
         width: 45px;
         height: 45px;
+    }
+    
+    /* The Chat Window Fix */
+    .chatbot-window {
+        position: fixed;      /* Break free from the button */
+        bottom: 75px;         /* Sit safely above the toggle button */
+        right: 15px;          /* 15px margin from the right edge */
+        left: 15px;           /* 15px margin from the left edge */
+        width: auto;          /* Fill the space between left and right */
+        max-width: none;      /* Remove desktop constraints */
+        height: 420px;        
+        max-height: 70vh;     /* Ensure it never gets taller than the screen */
+        transform-origin: bottom right;
     }
 
 }
