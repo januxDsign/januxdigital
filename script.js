@@ -491,8 +491,9 @@ async function handleChatSubmit(event) {
         appendChatBubble("I'm currently offline. Please email januxdig@gmail.com directly.", 'bot');
     }
 
+}
 
-    // ==========================================
+  // ==========================================
     // 6. LANGUAGE TRANSLATION
     // ==========================================
     function changeLanguage(langCode) {
@@ -506,6 +507,3 @@ async function handleChatSubmit(event) {
             console.error("Google Translate script hasn't loaded yet.");
         }
     }
-
-
-}
