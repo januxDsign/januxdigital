@@ -6,13 +6,10 @@ function initTheme() {
     const root = document.documentElement;
     
     const savedTheme = localStorage.getItem('janux_theme');
-    const isMobile = window.innerWidth <= 968;
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
+    // Force Dark Mode default on both Mobile and Desktop
     if (savedTheme) {
         setTheme(savedTheme);
-    } else if (isMobile) {
-        setTheme(systemPrefersDark ? 'dark' : 'light');
     } else {
         setTheme('dark');
     }
@@ -27,8 +24,8 @@ function initTheme() {
         localStorage.setItem('janux_theme', theme);
     }
 }
-
 initTheme();
+
 
 // ==========================================
 // 1. DATABASE OBJECTS
@@ -431,6 +428,39 @@ function initAllScripts() {
             }
         });
     });
+
+    // ==========================================
+    // Mobile Bottom Nav - Liquid Glass Slider
+    // ==========================================
+    const bottomNavLinks = document.querySelectorAll('.mobile-bottom-nav a');
+    const navIndicator = document.querySelector('.nav-indicator');
+
+    function updateNavIndicator(element) {
+        // Prevent errors on desktop where the indicator is hidden
+        if (!navIndicator || !element || window.innerWidth > 767) return; 
+        
+        const offsetLeft = element.offsetLeft;
+        const width = element.offsetWidth;
+        
+        navIndicator.style.transform = `translateX(${offsetLeft}px)`;
+        navIndicator.style.width = `${width}px`;
+    }
+
+    // Safely set initial position on load for mobile devices
+    if (navIndicator && window.innerWidth <= 767) {
+        const activeMobileLink = document.querySelector('.mobile-bottom-nav a.active');
+        // Slight delay ensures the DOM has painted before measuring the pill width
+        setTimeout(() => updateNavIndicator(activeMobileLink), 250); 
+    }
+
+    bottomNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            bottomNavLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+            updateNavIndicator(this);
+        });
+    });
+
 }
 
 // Execution Wrapper
