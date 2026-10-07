@@ -4,7 +4,7 @@
 :root {
     --bg-main: #000c0b;
     --bg-alt: #0d0d0f9c;
-    --accent-green: #0ef76f;
+    --accent-green: #5BCD5A;
     --glass-bg: rgba(255, 255, 255, 0.02);
     --glass-border: rgba(0, 61, 30, 0.308);
     --text-main: #ffffff;
@@ -1821,7 +1821,7 @@ nav a:hover::after, nav a.active::after {
     background: var(--card-bg); color: var(--text-main); 
     border: 1px solid var(--glass-border); border-radius: 50%; 
     font-size: 1.2rem; cursor: pointer; display: flex; justify-content: center; align-items: center; 
-    color: #20d419;
+    color: #25D366;
     z-index: 9800; opacity: 0; pointer-events: none; 
     backdrop-filter: blur(10px); transform: translateY(20px); transition: all 0.3s ease;
 }
@@ -1846,7 +1846,7 @@ nav a:hover::after, nav a.active::after {
     border: 1px solid var(--glass-border); box-shadow: 0 10px 25px rgba(0,0,0,0.1); transition: all 0.3s ease;
 }
 
-.float-icon-box { width: 36px; height: 36px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; font-weight: bold; background: #eee; color: #000; }
+.float-icon-box { width: 30px; height: 30px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; font-weight: bold; background: #eee; color: #000; }
 .float-btn.email-float:hover { 
     background: var(--bg-alt);
     color: var(--text-main);  
@@ -1862,7 +1862,7 @@ nav a:hover::after, nav a.active::after {
     color: #000; 
     border: none; 
     height: 50px; /* Reduced from 60px */
-    padding: 0 24px; /* Reduced padding */
+    padding: 0 20px; /* Reduced padding */
     border-radius: 25px; 
     font-size: 0.95rem; /* Reduced font size */
     font-weight: 700; 
@@ -1872,6 +1872,7 @@ nav a:hover::after, nav a.active::after {
     display: flex; 
     justify-content: center; 
     align-items: center; 
+    backdrop-filter: blur(10px);
 }
 .float-main-btn:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 15px 35px rgba(91, 205, 90, 0.5); }
 .float-text { display: block; }
@@ -1889,301 +1890,10 @@ nav a:hover::after, nav a.active::after {
 .hamburger.active span:nth-child(2) { opacity: 0; }
 .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-/* =========================================
-   AI CHATBOT WIDGET STYLES
-========================================= */
-.chatbot-wrapper {
-    position: fixed;
-    bottom: 95px; /* Sits exactly above the Let's Talk button */
-    right: 30px;  /* Aligned to the right margin */
-    z-index: 9900;
-    transition: bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Smooth vertical sliding */
-}
-
-/* --- When Contact Menu is Expanded --- */
-.chatbot-wrapper.contact-expanded {
-    bottom: 220px; /* Pushes up above the expanded Email & WhatsApp buttons */
-}
-
-/* --- When near footer (Let's Talk hides) --- */
-.chatbot-wrapper.shift-down {
-    bottom: 30px; /* Drops down to take over the corner space */
-}
-
-.chatbot-toggle-btn {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: rgba(10, 15, 10, 0); /* Dark background */
-    border: 1px solid rgba(92, 205, 90, 0); /* Subtle green border */
-    color: var(--accent-green);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-}
-
-.chatbot-toggle-btn:hover {
-    background: rgba(20, 35, 20, 0);
-    
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 10px 25px rgba(91, 205, 90, 0.2);
-}
 
 
 
-/* =========================================
-   SVG CHATBOT ANIMATION
-========================================= */
-#bot-svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
 
-/* Ensure scaling happens from the center of the elements themselves */
-.bot-eye {
-    transform-origin: center;
-    transform-box: fill-box;
-}
-
-/* --- IDLE STATE (Chat Closed - 10s Loop) --- */
-.chatbot-wrapper:not(.active) #bot-eyes-group {
-    animation: idle-look 10s ease-in-out infinite;
-}
-.chatbot-wrapper:not(.active) .bot-eye {
-    animation: idle-blink 10s ease-in-out infinite;
-}
-
-/* --- ACTIVE STATE (Chat Open - 6s Loop) --- */
-.chatbot-wrapper.active #bot-eyes-group {
-    animation: active-look 6s ease-in-out infinite;
-}
-.chatbot-wrapper.active .left-eye {
-    animation: active-blink-left 6s ease-in-out infinite;
-}
-.chatbot-wrapper.active .right-eye {
-    animation: active-blink-right 6s ease-in-out infinite;
-}
-
-/* =========================================
-   KEYFRAMES (Adjusted for 43x43 Canvas)
-========================================= */
-
-@keyframes idle-blink {
-    0%, 20%   { transform: scaleY(0.1); opacity: 0.5; } 
-    22%, 26%  { transform: scaleY(1); opacity: 1; }     
-    28%, 40%  { transform: scaleY(0.1); opacity: 0.5; } 
-    42%, 60%  { transform: scaleY(1); opacity: 1; }     
-    62%, 100% { transform: scaleY(0.1); opacity: 0.5; } 
-}
-
-@keyframes idle-look {
-    0%, 43%   { transform: translateX(0); }
-    46%, 49%  { transform: translateX(-2.5px); } /* Scaled down from 8px */
-    52%, 55%  { transform: translateX(2.5px); }  
-    58%, 100% { transform: translateX(0); }    
-}
-
-@keyframes active-blink-left {
-    0%, 8%    { transform: scaleY(0.1); opacity: 0.5; } 
-    12%, 100% { transform: scaleY(1); opacity: 1; }     
-}
-
-@keyframes active-blink-right {
-    0%, 8%    { transform: scaleY(0.1); opacity: 0.5; } 
-    12%, 65%  { transform: scaleY(1); opacity: 1; }     
-    67%, 69%  { transform: scaleY(0.1); opacity: 0.5; } 
-    71%, 100% { transform: scaleY(1); opacity: 1; }     
-}
-
-@keyframes active-look {
-    0%, 20%   { transform: translateY(0); }
-    25%, 35%  { transform: translateY(-2.5px); } /* Scaled down from 8px */
-    40%, 100% { transform: translateY(0); }    
-}
-
-/* Outer button physical breathing */
-.chatbot-wrapper:not(.active) .chatbot-toggle-btn {
-    animation: bot-idle-breath 10s ease-in-out infinite;
-}
-.chatbot-wrapper.active .chatbot-toggle-btn {
-    animation: bot-active-breath 6s ease-in-out infinite;
-}
-
-/* Chat Window Frame */
-.chatbot-window {
-    position: absolute;
-    bottom: 70px;
-    right: 0;
-    width: 340px;
-    max-width: calc(100vw - 40px);
-    height: 480px;
-    background: var(--bg-alt);
-    border: 1px solid var(--glass-border);
-    border-radius: 18px;
-    box-shadow: 0 20px 40px var(--shadow-strong);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(20px) scale(0.95);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    transform-origin: bottom right;
-}
-
-.chatbot-wrapper.active .chatbot-window {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0) scale(1);
-}
-
-/* Chat Header */
-.chatbot-header {
-    padding: 14px 18px;
-    border-bottom: 1px solid var(--glass-border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.02);
-}
-
-.chatbot-header-info {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.chatbot-avatar {
-    width: 40px;
-    height: 40px;
-    
-    background: rgba(92, 205, 90, 0);
-    color: var(--accent-green);
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-
-.chatbot-header-info h4 {
-    font-size: 0.85rem;
-    margin: 0;
-    color: var(--text-main);
-}
-
-.chatbot-status {
-    font-size: 0.65rem;
-    color: var(--accent-green);
-}
-
-.chatbot-close-btn {
-    background: none;
-    border: none;
-    color: var(--text-muted);
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: color 0.2s;
-}
-
-.chatbot-close-btn:hover {
-    color: var(--accent-green);
-}
-
-/* Messages Area */
-.chatbot-messages {
-    flex: 1;
-    padding: 16px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.chatbot-messages::-webkit-scrollbar {
-    width: 4px;
-}
-
-.chatbot-messages::-webkit-scrollbar-thumb {
-    background: var(--glass-border);
-    border-radius: 4px;
-}
-
-.chat-bubble {
-    max-width: 82%;
-    padding: 10px 14px;
-    font-size: 0.8rem;
-    line-height: 1.45;
-    border-radius: 14px;
-    word-break: break-word;
-}
-
-.chat-bubble.bot {
-    align-self: flex-start;
-    background: var(--card-bg);
-    border: 1px solid var(--glass-border);
-    color: var(--text-main);
-    border-bottom-left-radius: 3px;
-}
-
-.chat-bubble.user {
-    align-self: flex-end;
-    background: var(--accent-green);
-    color: #07270d;
-    font-weight: 500;
-    border-bottom-right-radius: 3px;
-}
-
-/* Input Form */
-.chatbot-input-area {
-    padding: 10px 14px;
-    border-top: 1px solid var(--glass-border);
-    display: flex;
-    gap: 8px;
-    background: rgba(0, 0, 0, 0.1);
-}
-
-.chatbot-input-area input {
-    flex: 1;
-    background: transparent;
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    padding: 8px 14px;
-    font-size: 0.8rem;
-    color: var(--text-main);
-    outline: none;
-    transition: border-color 0.2s;
-}
-
-.chatbot-input-area input:focus {
-    border-color: var(--accent-green);
-}
-
-.chatbot-input-area button {
-    background: var(--accent-green);
-    border: none;
-    color: #07270d;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.chatbot-input-area button:hover {
-    transform: scale(1.08);
-}
 
 /* --- GLOBAL DESKTOP RULES --- */
 .mobile-bottom-nav { 
@@ -2227,7 +1937,7 @@ header nav {
     align-items: center;
     justify-content: space-around;
     width: 80%;
-    max-width: 290px;
+    max-width: 220px;
     height: 55px;
     border-radius: 50px; /* Smooth rounded outer capsule */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -2290,6 +2000,7 @@ header nav {
     transform: scale(0.88); /* Smoothly zooms out slightly when scrolling */
     background: rgba(230, 235, 235, 0.637);
 }
+
 
 /* Only display on mobile/tablet viewports where bottom nav makes sense */
 @media (min-width: 1024px) {
@@ -2636,18 +2347,11 @@ header nav {
     .price-card-right .price-big { font-size: 1.5rem; }
 
     /* --- FIX WIDGET OVERLAP ON MOBILE --- */
-    .floating-contact-wrapper { bottom: 95px !important; right: 15px !important; transform: scale(0.85); transform-origin: bottom right; }
-    .chatbot-wrapper { bottom: 160px !important; right: 15px !important; }
-    .chatbot-wrapper.shift-down { bottom: 95px !important; }
-    .chatbot-wrapper.contact-expanded { bottom: 230px !important; }
-    .scroll-to-top { bottom: 95px !important; left: 15px !important; width: 40px; height: 40px; font-size: 1rem; }
+    .floating-contact-wrapper { bottom: 95px !important; right: 15px !important; left: 15px !important; transform: scale(0.85); transform-origin: bottom right; }
+    
+    .scroll-to-top { bottom: 33px !important; left: 15px !important; width: 40px; height: 40px; font-size: 1rem; }
 
-    /* The Chat Window Fix */
-    .chatbot-window {
-        position: absolute; bottom: 65px; right: 0; left: auto;
-        width: calc(100vw - 30px); max-width: 380px; height: 420px; max-height: 65vh;
-        transform-origin: bottom right;
-    }
+    
 }
 
 /* -----------------------------------------
