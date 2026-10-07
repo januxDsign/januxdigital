@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Janux Digital</title>
+    
+    <!-- Favicon & Fonts -->
+    <link rel="icon" type="image/png" href="assets/favico.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    
+    <!-- Stylesheets -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER & NAVIGATION -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logodark.png" class="logo-dark" alt="Janux Digital">
+                    <img src="assets/logolight.png" class="logo-light" alt="Janux Digital">
+                </a>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <button id="themeToggle" class="theme-switch" aria-label="Toggle Theme">
+                    <span class="switch-slider"></span>
+                    <span class="switch-icon sun"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+                    <span class="switch-icon moon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#experience">Work Experience</a></li>
+                    <li><a href="services.html">Design Services</a></li>
+                    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    
+   <!-- =========================================
+            FILTERABLE PORTFOLIO GRID SECTION 
+    ========================================= -->
+    <section class="container" style="padding-top: 120px; margin-top: 60px;" id="portfolio-section">
+        
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 30px auto;">
+            <span class="section-subtitle">My Work</span>
+            <h2>Portfolio <span style="color: var(--accent-green);">Showcase</span></h2>
+            <p>Explore a collection of my recent graphic design, branding, and publication projects.</p>
+        </div>
+        
+        <!-- Filter Button Grid (2-3 Rows) -->
+        <div class="portfolio-filters-grid">
+            <button class="filter-btn active" onclick="filterPortfolio('all', this)">Show All (Reset)</button>
+            <button class="filter-btn" onclick="filterPortfolio('logo', this)">Logo & Brand Identity</button>
+            <button class="filter-btn" onclick="filterPortfolio('flyer', this)">Flyer Design</button>
+            <button class="filter-btn" onclick="filterPortfolio('billboard', this)">Billboard Design</button>
+            <button class="filter-btn" onclick="filterPortfolio('rollup', this)">Rollup Banner</button>
+            <button class="filter-btn" onclick="filterPortfolio('booth', this)">Trade Show Booth</button>
+            <button class="filter-btn" onclick="filterPortfolio('cards', this)">Business Cards</button>
+            <button class="filter-btn" onclick="filterPortfolio('brochure', this)">Brochures</button>
+            <button class="filter-btn" onclick="filterPortfolio('pack', this)">Label/Packaging</button>
+            <button class="filter-btn" onclick="filterPortfolio('web', this)">Web Assets</button>
+            <button class="filter-btn" onclick="filterPortfolio('poster', this)">Poster Design</button>
+            <button class="filter-btn" onclick="filterPortfolio('resume', this)">Resume</button>
+            <button class="filter-btn" onclick="filterPortfolio('worddoc', this)">Word Document</button>
+            <button class="filter-btn" onclick="filterPortfolio('tshirt', this)">T-shirt</button>
+            <button class="filter-btn" onclick="filterPortfolio('powerpoint', this)">Powerpoint</button>
+            <button class="filter-btn" onclick="filterPortfolio('stationeries', this)">Stationery</button>
+            <button class="filter-btn" onclick="filterPortfolio('infographic', this)">Infographic</button>
+            <button class="filter-btn" onclick="filterPortfolio('banner', this)">Banner Design</button>
+            <button class="filter-btn" onclick="filterPortfolio('signage', this)">Signage Board</button>
+            <button class="filter-btn" onclick="filterPortfolio('other', this)">Other</button>
+        </div>
+        
+        <!-- Tight Image Grid -->
+        <div class="portfolio-tight-grid" id="portfolio-grid">
+
+<!--other--> 
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/f92f67256769771.6ac60e8268891.jpg" alt="Other Design">
+</div>
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/a81452256769771.6ac60e82683cb.jpg" alt="Other Design">
+</div>
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/ebe2ed256769771.6ac60e826b1d0.jpg" alt="Other Design">
+</div>
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/cd3069256769771.6ac60e826cceb.jpg" alt="Other Design">
+</div>
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/2a1ce8256769771.6ac60e826a512.jpg" alt="Other Design">
+</div>
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/5fa204256769771.6ac60e826ad88.jpg" alt="Other Design">
+</div>
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/42eecd256769771.6ac60e82694a6.jpg" alt="Other Design">
+</div>
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/8a4f37256769771.6ac60e82690a1.jpg" alt="Other Design">
+</div>
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/7f280e256769771.6ac60e8268ca7.jpg" alt="Other Design">
+</div>
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/ae0e7f256769771.6ac60e8269cfe.jpg" alt="Other Design">
+</div>
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/e40526256769771.6ac60e826bafb.jpg" alt="Other Design">
+</div>
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/d5b1e3256769771.6ac60e826c448.jpg" alt="Other Design">
+</div>
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/d91787256769771.6ac60e826d174.jpg" alt="Other Design">
+</div>
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/6d327c256769771.6ac60e826a928.jpg" alt="Other Design">
+</div>
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/7d3779256769771.6ac60e826d6a1.jpg" alt="Other Design">
+</div>
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/e2de40256769771.6ac60e826a127.jpg" alt="Other Design">
+</div>
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/56ab08256769771.6ac60e826b673.jpg" alt="Other Design">
+</div>
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/9f0d68256769771.6ac60e826c892.jpg" alt="Other Design">
+</div>
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/0e6b50256769771.6ac60e82698fa.jpg" alt="Other Design">
+</div>
+<div class="grid-item" data-category="other" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/0b1353256769771.6ac60e826bff3.jpg" alt="Other Design">
+</div>
+
+<!--web--> 
+
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/a460ec256760531.6ac5d71983b68.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/a2f44f256760531.6ac5d7198786e.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/0bf316256760531.6ac5d719873c8.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/ce921d256760531.6ac5d7198d21d.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/5ef8c2256760531.6ac5d7198a13d.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/9bf821256760531.6ac5d719848ef.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/1a46e3256760531.6ac5d71983f97.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/0cb5b3256760531.6ac5d719862c9.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/e34047256760531.6ac5d71986f3e.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/5eed91256760531.6ac5d71984dea.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/5bcc30256760531.6ac5d71985acd.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/773cfd256760531.6ac5d71983265.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/f5094c256760531.6ac5d7198371d.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/b5359d256760531.6ac5d71985eeb.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/b5ab7e256760531.6ac5d719899c5.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/fa1f83256760531.6ac5d7198563e.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/bc030f256760531.6ac5d719843d4.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/8ce6b1256760531.6ac5d7198b71b.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/1b5aba256760531.6ac5d7198c283.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/6f5918256760531.6ac5d719883b0.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/30cfc9256760531.6ac5d71987d10.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/fd6afe256760531.6ac5d71986708.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/f7062e256760531.6ac5d7198930d.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/228d2e256760531.6ac5d7198523b.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/805440256760531.6ac5d71986b10.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/97196a256760531.6ac5d71988be6.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/ba7193256760531.6ac5d7198b045.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/9334de256760531.6ac5d7198a89b.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/a0e7e6256760531.6ac5d7198ccfa.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/b7f464256760531.6ac5d7198bc45.jpg" alt="Web Design">
+</div>
+<div class="grid-item" data-category="web" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/748f9d256760531.6ac5d7198c805.jpg" alt="Web Design">
+</div>
+
+
+<!--pack-->   
+
+<div class="grid-item" data-category="pack" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/e45fcb256758951.6ac5ca5fe176c.jpg" alt="Packaging Design">
+</div>
+<div class="grid-item" data-category="pack" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/eb93ff256758951.6ac5ca5fe4aa0.jpg" alt="Packaging Design">
+</div>
+<div class="grid-item" data-category="pack" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/bd1ab6256758951.6ac5ca5fe30b2.jpg" alt="Packaging Design">
+</div>
+<div class="grid-item" data-category="pack" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/ab1184256758951.6ac5ca5fe3641.jpg" alt="Packaging Design">
+</div>
+<div class="grid-item" data-category="pack" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/baa639256758951.6ac5ca5fe5099.jpg" alt="Packaging Design">
+</div>
+<div class="grid-item" data-category="pack" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/e12d0d256758951.6ac5ca5fe2c8e.jpg" alt="Packaging Design">
+</div>
+<div class="grid-item" data-category="pack" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/989424256758951.6ac5ca5fe2849.jpg" alt="Packaging Design">
+</div>
+<div class="grid-item" data-category="pack" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/2e8ed1256758951.6ac5ca5fe22b1.jpg" alt="Packaging Design">
+</div>
+<div class="grid-item" data-category="pack" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/0ee8ba256758951.6ac5ca5fe5711.jpg" alt="Packaging Design">
+</div>
+<div class="grid-item" data-category="pack" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/cd9e3b256758951.6ac5ca5fe40dc.jpg" alt="Packaging Design">
+</div>
+<div class="grid-item" data-category="pack" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/450257256758951.6ac5ca5fe3b7b.jpg" alt="Packaging Design">
+</div>
+<div class="grid-item" data-category="pack" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/2e009c256758951.6ac5ca5fe4576.jpg" alt="Packaging Design">
+</div>
+
+<!--brochure-->   
+
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/694eac256755385.6ac5a2ac478ef.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/2b4fc7256755385.6ac5a2ac49aaf.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/ad3adf256755385.6ac5a2ac4be9b.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/51b4a3256755385.6ac5a2ac4c673.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/212b22256755385.6ac5a2ac49ea4.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/cd3ae8256755385.6ac5a2ac4ca54.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/a62e82256755385.6ac5a2ac4968b.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/c90b8e256755385.6ac5a2ac4a6d6.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/c59766256755385.6ac5a2ac47d94.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/d94182256755385.6ac5a2ac4c289.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/1b930e256755385.6ac5a2ac4aef6.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/fd6d06256755385.6ac5a2ac4b2fd.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/8fc9ed256755385.6ac5a2ac4a29d.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/3d6fe3256755385.6ac5a2ac4bacd.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/a1c126256755385.6ac5a2ac48207.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/4eb76f256755385.6ac5a2ac49170.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/da92c9256755385.6ac5a2ac4ce48.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/54f796256755385.6ac5a2ac48c0c.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/12a821256755385.6ac5a2ac48728.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/83c293256755385.6ac5a2ac4ab08.jpg" alt="Brochure Design">
+</div>
+<div class="grid-item" data-category="brochure" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/62b15c256755385.6ac5a2ac4b6fd.jpg" alt="Brochure Design">
+</div>
+
+<!--Signage Board-->           
+           
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/6ba06b256737321.6ac5201640af9.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/01ed4e256737321.6ac52016419c8.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/8d6c6f256737321.6ac520163f1bb.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/5839d9256737321.6ac5201643348.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/b82d5d256737321.6ac520163eddc.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/0d89b4256737321.6ac5201640ede.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/0a9e1d256737321.6ac52016424a5.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/22dd22256737321.6ac5201641d90.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/f21ef7256737321.6ac5201642f82.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/8b8257256737321.6ac520163ffc6.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/be55d5256737321.6ac5201644539.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/b75e2a256737321.6ac520164128b.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/9e3ab7256737321.6ac520163f8d4.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/e5c570256737321.6ac5201642819.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/8b00c4256737321.6ac5201640342.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/fb842e256737321.6ac52016441a9.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/83391c256737321.6ac52016436ca.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/56779c256737321.6ac520163f552.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/0dd7cf256737321.6ac5201641641.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/5307fb256737321.6ac5201643a55.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/0952bc256737321.6ac5201640734.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/12daa3256737321.6ac520164489c.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/9d3e95256737321.6ac520163fc42.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/45fc08256737321.6ac5201642104.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/24d833256737321.6ac5201643df2.jpg" alt="Signage Design">
+</div>
+<div class="grid-item" data-category="signage" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/f79057256737321.6ac5201642bd0.jpg" alt="Signage Design">
+</div>
+
+
+ <!--billboard-->           
+
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/d6c756256544755.6abf18a869b26.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/118da7256544755.6abf18a86f01e.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/d0fd98256544755.6abf18a86f6e0.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/73c3ea256544755.6abf18a86fd4e.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/c1520a256544755.6abf18a867a94.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/c99dee256544755.6abf18a86a7b6.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/c88568256544755.6abf18a86ae06.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/f24d40256544755.6abf18a86e350.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/cc0efe256544755.6abf18a86dd08.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/511087256544755.6abf18a86bacc.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/4ccb2f256544755.6abf18a8694a0.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/a82554256544755.6abf18a86a15a.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/372d7d256544755.6abf18a86d568.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/886494256544755.6abf18a86b46e.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/9deaba256544755.6abf18a868e2f.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/1a0917256544755.6abf18a8687a5.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/0f727f256544755.6abf18a86c18a.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/f9eed1256544755.6abf18a86e9de.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/249702256544755.6abf18a86cf2b.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/2496ce256544755.6abf18a8673a2.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/803fde256544755.6abf18a86c807.jpg" alt="Billboard Design">
+</div>
+<div class="grid-item" data-category="billboard" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/8d3134256544755.6abf18a868144.jpg" alt="Billboard Design">
+</div>
+
+<!--rollup-->
+
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/160f30254213491.6ac511ad0e0fe.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/ef2e45254213491.6ac511ad0c789.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/f8b334254213491.6ac511ad0c120.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp_webp/e6d07a254213491.6ac511ad0b3ae.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/c571ed254213491.6ac511ad07a88.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/3bd014254213491.6ac511ad0ad17.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/f819c9254213491.6ac511ad073d5.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/986cbd254213491.6ac511ad035a2.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/ffb867254213491.6ac511ad0da85.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/52d553254213491.6ac511ad0cddf.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/888ee7254213491.6ac511ad08f65.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/14f0e7254213491.6ac511ad08864.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/4f77c5254213491.6ac511ad044b0.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/0a4d3e254213491.6ac511ad0817c.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/c8855b254213491.6ac511ad06c42.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/244a8e254213491.6ac511ad0d438.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/9ffb67254213491.6ac511ad04b72.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp_webp/4e786f254213491.6ac511ad02664.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/b2842e254213491.6ac511ad02db9.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/02003a254213491.6ac511ad09dfd.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/cbd002254213491.6ac511ad095d7.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/2c91f9254213491.6ac511ad063d0.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/af7b3f254213491.6ac511ad05b8c.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/bcfd14254213491.6ac511ad03cd8.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/1cf5ce254213491.6ac511ad0526b.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/793552254213491.6ac511ad0a60c.jpg" alt="Rollup Banner Design">
+</div>
+<div class="grid-item" data-category="rollup" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/eab60e254213491.6ac511ad0baad.jpg" alt="Rollup Banner Design">
+</div>
+
+<!--Resume-->
+
+<div class="grid-item" data-category="resume" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/0a89e1254213027.6ac609eeb7cd7.jpg" alt="Resume Design">
+</div>
+<div class="grid-item" data-category="resume" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/b9054e254213027.6ac609eeb9173.jpg" alt="Resume Design">
+</div>
+<div class="grid-item" data-category="resume" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/81ac80254213027.6ac609eeb8999.jpg" alt="Resume Design">
+</div>
+<div class="grid-item" data-category="resume" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/19b577254213027.6ac609eeb9552.jpg" alt="Resume Design">
+</div>
+<div class="grid-item" data-category="resume" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/db8011254213027.6ac609eeb8578.jpg" alt="Resume Design">
+</div>
+<div class="grid-item" data-category="resume" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/363dc8254213027.6ac609eeb99a2.jpg" alt="Resume Design">
+</div>
+<div class="grid-item" data-category="resume" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/d06334254213027.6ac609eeb78b1.jpg" alt="Resume Design">
+</div>
+<div class="grid-item" data-category="resume" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/063c80254213027.6ac609eeb8d8c.jpg" alt="Resume Design">
+</div>
+<div class="grid-item" data-category="resume" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/1057a1254213027.6ac609eeb73a3.jpg" alt="Resume Design">
+</div>
+<div class="grid-item" data-category="resume" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/6af714254213027.6ac609eeb6d82.jpg" alt="Resume Design">
+</div>
+<div class="grid-item" data-category="resume" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/82f5d3254213027.6ac609eeb812b.jpg" alt="Resume Design">
+</div>
+
+
+
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/73f9c3254212489.6a7d477b4e96a.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/8e67d2254212489.6a7d45f2172b8.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/05790f254212489.6a7d45f221fe4.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/4b47ee254212489.6a7d45f218add.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/92b0c3254212489.6a7d45f21dd42.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/369641254212489.6a7d45f21fc33.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/c47257254212489.6a7d45f222c79.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/1a1424254212489.6a7d45f220416.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/c3e473254212489.6a7d45f21f61e.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/eb5fea254212489.6a7d45f22118c.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/d957b8254212489.6a7d45f21e62c.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/60ad03254212489.6a7d45f21ee33.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/821e56254212489.6a7d45f219218.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/a43bcb254212489.6a7d45f21ccbc.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/745643254212489.6a7d45f220b04.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/9c2b40254212489.6a7d45f21d53a.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/60bfe7254212489.6a7d45f21c597.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/2a74c2254212489.6a7d45f2198be.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/d45311254212489.6a7d45f2218da.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/a57d36254212489.6a7d45f222643.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/0e3527254212489.6a7d45f219f52.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/96649d254212489.6a7d45f217a9e.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/faabb7254212489.6a7d45f21beba.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/20e10c254212489.6a7d45f21b7d6.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/ad5631254212489.6a7d45f21aeef.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/a4fad3254212489.6a7d45f218336.jpg" alt="Word Doc Design">
+</div>
+<div class="grid-item" data-category="worddoc" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/61de4d254212489.6a7d45f21a61f.jpg" alt="Word Doc Design">
+</div>
+
+<!--flyer-->
+
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400_webp/ba4a5a254212303.6abe4631e9944.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/5cb6cd254212303.6abe4630c6d6c.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/402acd254212303.6abe4630c711d.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/c252a1254212303.6abe4630c6267.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/b21a53254212303.6abe4630c577a.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/098f58254212303.6abe4630c69b5.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/4b66f4254212303.6abe4630c936e.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/1ad91a254212303.6abe4630c7877.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/eee1dd254212303.6abe4630c3977.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/81e9dd254212303.6abe4630c872a.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/2f2643254212303.6abe4630c26ec.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/600aa8254212303.6abe4630c53c8.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/c6ee05254212303.6abe4630c3d52.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/88fbf5254212303.6abe4630c5b2f.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/100f82254212303.6abe4630c1f72.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/2e7519254212303.6abe4630c2e30.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/708f55254212303.6abe4630c35bd.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/61887e254212303.6abe4630c4fe8.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/f5911d254212303.6abe4630c410d.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/bc0dc6254212303.6abe4630c5ee0.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/ad06dd254212303.6abe4630c1b7a.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/4806c1254212303.6abe4630c4884.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/da1e99254212303.6abe4630c31c1.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/44bfc0254212303.6abe4630c2331.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/5faaf1254212303.6abe4630c2a7d.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/ff2bef254212303.6abe4630c44c2.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/f0b32e254212303.6abe4630c4c53.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/665c7d254212303.6abe4630c7ffe.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/cd5cac254212303.6abe4630c8b81.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/6bd693254212303.6abe4630c65f0.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/63864c254212303.6abe4630c8f88.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/19010e254212303.6abe4630c7c4d.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/62a1a5254212303.6abe4630c74c3.jpg" alt="Flyer Design">
+</div>
+<div class="grid-item" data-category="flyer" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/7e0878254212303.6abe4630c8399.jpg" alt="Flyer Design">
+</div>
+
+<!--tshirt-->
+
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/187c4a256360295.6aba72f09c366.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/b56217256360295.6aba72f09ef45.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/852114256360295.6aba72f0a2d54.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/d860f9256360295.6aba72f0a3cf1.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/c380d0256360295.6aba72f0a43c3.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/943091256360295.6aba72f0a0b88.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/9d91d6256360295.6aba72f09cab3.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/961f37256360295.6aba72f09f496.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/4f4d52256360295.6aba72f09d763.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/31c238256360295.6aba72f09ffab.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/f3371c256360295.6aba72f0a12b5.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/520ef9256360295.6aba72f0a0595.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/434915256360295.6aba72f09e969.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/ed4c40256360295.6aba72f09de44.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/cb0de0256360295.6aba72f0a354f.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/dbb1cb256360295.6aba72f0a1ec1.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/e5d818256360295.6aba72f09fa7e.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/d226fd256360295.6aba72f0a5431.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/301cbb256360295.6aba72f09d0f3.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/7d2089256360295.6aba72f0a4e85.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/665e1e256360295.6aba72f0a2688.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/162e8b256360295.6aba72f0a18bf.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/b445a8256360295.6aba72f0a5954.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/03d965256360295.6aba72f09e3f7.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/e8abc7256360295.6aba72f0a4940.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/e570d5256360295.6aba72f0a79ce.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/6e9047256360295.6aba72f0ab1d2.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/7d418c256360295.6aba72f0a740b.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/392c59256360295.6aba72f0aa130.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/fa09d6256360295.6aba72f0a7fcf.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/841b24256360295.6aba72f0a6e0c.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/23ef6d256360295.6aba72f0a93f6.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/fe020c256360295.6aba72f0a8d49.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/d00337256360295.6aba72f0a85f3.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/2a9dc1256360295.6aba72f0a9a2d.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/faf7ee256360295.6aba72f0aa914.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/faea0e256360295.6aba72f0a6801.jpg" alt="T-Shirt Design">
+</div>
+<div class="grid-item" data-category="tshirt" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/21789b256360295.6aba72f0a603e.jpg" alt="T-Shirt Design">
+</div>
+
+    <!-- Business Card -->
+
+    <div class="grid-item" data-category="cards" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/79bc0c256361127.6abb59d3d7a4b.jpg" alt="Business Card Design">
+    </div>
+    <div class="grid-item" data-category="cards" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/d6b29a256361127.6abb59d3db2ce.jpg" alt="Business Card Design">
+    </div>
+    <div class="grid-item" data-category="cards" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/b64cf0256361127.6abb59d3d8b62.jpg" alt="Business Card Design">
+    </div>
+    <div class="grid-item" data-category="cards" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/babdbd256361127.6abb59d3de71f.jpg" alt="Business Card Design">
+    </div>
+    <div class="grid-item" data-category="cards" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/057ba7256361127.6abb59d3dbb96.jpg" alt="Business Card Design">
+    </div>
+    <div class="grid-item" data-category="cards" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/250496256361127.6abb59d3d5ddf.jpg" alt="Business Card Design">
+    </div>
+    <div class="grid-item" data-category="cards" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/e99fc0256361127.6abb59d3dcc7a.jpg" alt="Business Card Design">
+    </div>
+    <div class="grid-item" data-category="cards" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/7861a1256361127.6abb59d3daa09.jpg" alt="Business Card Design">
+    </div>
+    <div class="grid-item" data-category="cards" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/68c995256361127.6abb59d3d940c.jpg" alt="Business Card Design">
+    </div>
+    <div class="grid-item" data-category="cards" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/573595256361127.6abb59d3d6ce7.jpg" alt="Business Card Design">
+    </div>
+    <div class="grid-item" data-category="cards" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/484401256361127.6abb59d3dc415.jpg" alt="Business Card Design">
+    </div>
+    <div class="grid-item" data-category="cards" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/84280a256361127.6abb59d3da2d0.jpg" alt="Business Card Design">
+    </div>
+    <div class="grid-item" data-category="cards" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/64031e256361127.6abb59d3d738b.jpg" alt="Business Card Design">
+    </div>
+    <div class="grid-item" data-category="cards" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/7b89c6256361127.6abb59d3d82e6.jpg" alt="Business Card Design">
+    </div>
+    <div class="grid-item" data-category="cards" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/efbbaf256361127.6abb59d3dd6d1.jpg" alt="Business Card Design">
+    </div>
+    <div class="grid-item" data-category="cards" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/ab1682256361127.6abb59d3ddfc1.jpg" alt="Business Card Design">
+    </div>
+    <div class="grid-item" data-category="cards" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/58df2b256361127.6abb59d3d9b87.jpg" alt="Business Card Design">
+    </div>
+    <div class="grid-item" data-category="cards" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/d12fc4256361127.6abb59d3d6591.jpg" alt="Business Card Design">
+    </div>
+
+    <!-- Stationery -->
+
+    <div class="grid-item" data-category="stationeries" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/83a905256395079.6abb624b5aaa5.jpg" alt="Stationery Design">
+    </div>
+    <div class="grid-item" data-category="stationeries" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/2ece65256395079.6abb624b594ca.jpg" alt="Stationery Design">
+    </div>
+    <div class="grid-item" data-category="stationeries" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/3db29c256395079.6abb624b5a27f.jpg" alt="Stationery Design">
+    </div>
+    <div class="grid-item" data-category="stationeries" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/87cc75256395079.6abb624b587ec.jpg" alt="Stationery Design">
+    </div>
+    <div class="grid-item" data-category="stationeries" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/9e5fbf256395079.6abb624b582fc.jpg" alt="Stationery Design">
+    </div>
+    <div class="grid-item" data-category="stationeries" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/8e963a256395079.6abb624b5a6a4.jpg" alt="Stationery Design">
+    </div>
+    <div class="grid-item" data-category="stationeries" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/088fb2256395079.6abb624b5aea2.jpg" alt="Stationery Design">
+    </div>
+    <div class="grid-item" data-category="stationeries" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/88bcc2256395079.6abb624b5909a.jpg" alt="Stationery Design">
+    </div>
+    <div class="grid-item" data-category="stationeries" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/87ab7c256395079.6abb624b59e0c.jpg" alt="Stationery Design">
+    </div>
+    <div class="grid-item" data-category="stationeries" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/cc2a41256395079.6abb624b598ea.jpg" alt="Stationery Design">
+    </div>
+    <div class="grid-item" data-category="stationeries" onclick="openImageModal(this.querySelector('img').src)">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/17cbbc256395079.6abb624b58c59.jpg" alt="Stationery Design">
+    </div>
+
+    <!-- PowerPoint -->
+    <div class="grid-item" data-category="powerpoint" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/de1c8e256400545.6abcf1d8081bc.jpg" alt="PowerPoint Design">
+</div>
+<div class="grid-item" data-category="powerpoint" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/110c7c256400545.6abcf1d806a05.jpg" alt="PowerPoint Design">
+</div>
+<div class="grid-item" data-category="powerpoint" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/56e718256400545.6abcf1d807963.jpg" alt="PowerPoint Design">
+</div>
+<div class="grid-item" data-category="powerpoint" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/15571f256400545.6abcf1d80739f.jpg" alt="PowerPoint Design">
+</div>
+<div class="grid-item" data-category="powerpoint" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/707d8e256400545.6abcf1d803a28.jpg" alt="PowerPoint Design">
+</div>
+<div class="grid-item" data-category="powerpoint" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/6f91d6256400545.6abcf1d807dcf.jpg" alt="PowerPoint Design">
+</div>
+<div class="grid-item" data-category="powerpoint" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/e48f9d256400545.6abcf1d806eeb.jpg" alt="PowerPoint Design">
+</div>
+<div class="grid-item" data-category="powerpoint" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/444c4d256400545.6abcf1d8055e6.jpg" alt="PowerPoint Design">
+</div>
+<div class="grid-item" data-category="powerpoint" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/031ed2256400545.6abcf1d804373.jpg" alt="PowerPoint Design">
+</div>
+<div class="grid-item" data-category="powerpoint" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/65de6a256400545.6abcf1d8035fb.jpg" alt="PowerPoint Design">
+</div>
+<div class="grid-item" data-category="powerpoint" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/c2c9d4256400545.6abcf1d806510.jpg" alt="PowerPoint Design">
+</div>
+<div class="grid-item" data-category="powerpoint" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/b1a9a1256400545.6abcf1d803ead.jpg" alt="PowerPoint Design">
+</div>
+<div class="grid-item" data-category="powerpoint" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/8a7760256400545.6abcf1d804eb1.jpg" alt="PowerPoint Design">
+</div>
+<div class="grid-item" data-category="powerpoint" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/9efaa8256400545.6abcf1d805f74.jpg" alt="PowerPoint Design">
+</div>
+<div class="grid-item" data-category="powerpoint" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/367d7f256400545.6abcf1d8047f3.jpg" alt="PowerPoint Design">
+</div>
+<div class="grid-item" data-category="powerpoint" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/4fa8ba256400545.6abcf1d805ad2.jpg" alt="PowerPoint Design">
+</div>
+
+
+<!-- infographics -->
+<div class="grid-item" data-category="infographic" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/e2aaf3256504429.6abe19654355c.jpg" alt="Infographic Design">
+</div>
+<div class="grid-item" data-category="infographic" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/95c426256504429.6abe196541fa0.jpg" alt="Infographic Design">
+</div>
+<div class="grid-item" data-category="infographic" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/fcf5c2256504429.6abe19654301f.jpg" alt="Infographic Design">
+</div>
+<div class="grid-item" data-category="infographic" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/24afed256504429.6abe19654233a.jpg" alt="Infographic Design">
+</div>
+<div class="grid-item" data-category="infographic" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/fe653f256504429.6abe196541878.jpg" alt="Infographic Design">
+</div>
+<div class="grid-item" data-category="infographic" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/f53285256504429.6abe196542b20.jpg" alt="Infographic Design">
+</div>
+<div class="grid-item" data-category="infographic" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/b237d7256504429.6abe1965410f4.jpg" alt="Infographic Design">
+</div>
+<div class="grid-item" data-category="infographic" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/4b77eb256504429.6abe1965426e3.jpg" alt="Infographic Design">
+</div>
+<div class="grid-item" data-category="infographic" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/cd6a91256504429.6abe1965414de.jpg" alt="Infographic Design">
+</div>
+<div class="grid-item" data-category="infographic" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/e2649d256504429.6abe196541c15.jpg" alt="Infographic Design">
+</div>
+
+<!--  logo  -->
+
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/895cea256505839.6abe225348884.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/ccf1aa256505839.6abe22534d3fa.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/eb6676256505839.6abe22534abd4.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/ab2954256505839.6abe22534907e.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/7bed4c256505839.6abe22534af04.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/b32a33256505839.6abe22534c1ce.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/1c7770256505839.6abe22534d840.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/6b957f256505839.6abe22534d055.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/60dea0256505839.6abe22534a3e7.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/d78eca256505839.6abe22534b627.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/2db56e256505839.6abe22534a89e.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/f24466256505839.6abe22534c90a.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/a2c938256505839.6abe225348caf.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/11faec256505839.6abe22534b9e3.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/b8551c256505839.6abe22534c56e.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/f37e87256505839.6abe22534be7c.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/37d159256505839.6abe225349810.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/c53240256505839.6abe225349bb8.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_3840_webp/cda657256505839.6abe225349447.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/a877a3256505839.6abe22534b2b0.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/abbfcb256505839.6abe225349f66.jpg" alt="Logo Design">
+</div>
+<div class="grid-item" data-category="logo" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/a3bd7c256505839.6abe22534cca0.jpg" alt="Logo Design">
+</div>
+
+<!--poster-->
+
+<div class="grid-item" data-category="poster" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/a9a11e254213755.6abf6fffccd20.jpg" alt="Poster Design">
+</div>
+<div class="grid-item" data-category="poster" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/bf03be254213755.6abf6fffcb441.jpg" alt="Poster Design">
+</div>
+<div class="grid-item" data-category="poster" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/be2a7f254213755.6abf6fffcbc92.jpg" alt="Poster Design">
+</div>
+<div class="grid-item" data-category="poster" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/3a6578254213755.6abf6fffc50c8.jpg" alt="Poster Design">
+</div>
+<div class="grid-item" data-category="poster" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/d9ed40254213755.6abf6fffc8716.jpg" alt="Poster Design">
+</div>
+<div class="grid-item" data-category="poster" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/424d61254213755.6abf6fffc8e5c.jpg" alt="Poster Design">
+</div>
+<div class="grid-item" data-category="poster" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/144aff254213755.6abf6fffcab9f.jpg" alt="Poster Design">
+</div>
+<div class="grid-item" data-category="poster" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/7d88a7254213755.6abf6fffc7017.jpg" alt="Poster Design">
+</div>
+<div class="grid-item" data-category="poster" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/97b0f1254213755.6abf6fffc5942.jpg" alt="Poster Design">
+</div>
+<div class="grid-item" data-category="poster" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/e8ef9b254213755.6abf6fffcc4db.jpg" alt="Poster Design">
+</div>
+<div class="grid-item" data-category="poster" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/d80f02254213755.6abf6fffc7f7e.jpg" alt="Poster Design">
+</div>
+<div class="grid-item" data-category="poster" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/b6ef76254213755.6abf6fffc60a3.jpg" alt="Poster Design">
+</div>
+<div class="grid-item" data-category="poster" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/ba5bd6254213755.6abf6fffc7776.jpg" alt="Poster Design">
+</div>
+<div class="grid-item" data-category="poster" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/3203a8254213755.6abf6fffc6834.jpg" alt="Poster Design">
+</div>
+<div class="grid-item" data-category="poster" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/ad33fd254213755.6abf6fffc957c.jpg" alt="Poster Design">
+</div>
+<div class="grid-item" data-category="poster" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/ce9b1f254213755.6abf6fffca2ec.jpg" alt="Poster Design">
+</div>
+
+<!--booth-->
+
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/e5cd36256736403.6ac51bbf0bd4f.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/0fb75c256736403.6ac51bbf0cc22.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/cde0f0256736403.6ac51bbf0943b.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/33a57b256736403.6ac51bbf07a8f.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/6e878e256736403.6ac51bbf0d585.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/9ed666256736403.6ac51bbf08bbd.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/ca26c0256736403.6ac51bbf0b561.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/d69869256736403.6ac51bbf03e34.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/bfc03b256736403.6ac51bbf0c50d.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/2db578256736403.6ac51bbf05024.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/376791256736403.6ac51bbf09bd6.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/9f85fb256736403.6ac51bbf0ad72.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/ced731256736403.6ac51bbf01c65.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/ac50f3256736403.6ac51bbf08369.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/3819c0256736403.6ac51bbf04766.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/3f4dbb256736403.6ac51bbf0368d.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/ec7679256736403.6ac51bbf071c3.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/5a120c256736403.6ac51bbf02ee9.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/fefdce256736403.6ac51bbf068ce.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/806d62256736403.6ac51bbf0a3a3.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/9fc910256736403.6ac51bbf057c9.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/7823db256736403.6ac51bbf02632.jpg" alt="Booth Design">
+</div>
+<div class="grid-item" data-category="booth" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/dd177a256736403.6ac51bbf05fb3.jpg" alt="Booth Design">
+</div>
+
+<!-- Banner Design -->
+
+<div class="grid-item" data-category="banner" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/35cf25256736805.6ac51e838172d.jpg" alt="Banner Design">
+</div>
+<div class="grid-item" data-category="banner" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/60a363256736805.6ac51e8381e5f.jpg" alt="Banner Design">
+</div>
+<div class="grid-item" data-category="banner" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/742d02256736805.6ac51e8383c2e.jpg" alt="Banner Design">
+</div>
+<div class="grid-item" data-category="banner" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/ce62a8256736805.6ac51e837e5b7.jpg" alt="Banner Design">
+</div>
+<div class="grid-item" data-category="banner" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/e31030256736805.6ac51e837ddc5.jpg" alt="Banner Design">
+</div>
+<div class="grid-item" data-category="banner" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/e0263c256736805.6ac51e8382570.jpg" alt="Banner Design">
+</div>
+<div class="grid-item" data-category="banner" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/549a05256736805.6ac51e8380908.jpg" alt="Banner Design">
+</div>
+<div class="grid-item" data-category="banner" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/7ab4c7256736805.6ac51e837edb3.jpg" alt="Banner Design">
+</div>
+<div class="grid-item" data-category="banner" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/3fa6dc256736805.6ac51e8382c5f.jpg" alt="Banner Design">
+</div>
+<div class="grid-item" data-category="banner" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/7ae8cf256736805.6ac51e8380fb3.jpg" alt="Banner Design">
+</div>
+<div class="grid-item" data-category="banner" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/646bfc256736805.6ac51e838028c.jpg" alt="Banner Design">
+</div>
+<div class="grid-item" data-category="banner" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/20d217256736805.6ac51e837f4f9.jpg" alt="Banner Design">
+</div>
+<div class="grid-item" data-category="banner" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/2130c9256736805.6ac51e837fbce.jpg" alt="Banner Design">
+</div>
+<div class="grid-item" data-category="banner" onclick="openImageModal(this.querySelector('img').src)">
+    <img src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200_webp/0e7ca1256736805.6ac51e83833d0.jpg" alt="Banner Design">
+</div>
+
+
+        </div>
+        </div>
+
+        <!-- Add the Load More Button -->
+        <div class="load-more-container">
+            <button id="load-more-btn" class="load-more-btn" onclick="loadMoreItems()">Load more</button>
+        </div>
+
+
+            <!-- =========================================
+         PORTFOLIO SECTION
+    ========================================= -->
+    <div class="container">
+                <h3 style="padding-bottom: 20px;">Want to see more of my work?</h3>
+                <div class="portfolio-links-grid">
+            
+            <a href="https://www.behance.net/Janakawijerathna" target="_blank" class="portfolio-btn">
+                <div class="port-logo-box">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2496/2496088.png" alt="Behance">
+                </div>
+                <p>View creative projects ↗</p>
+            </a>
+
+            <a href="https://dribbble.com/janaka-wijerathna" target="_blank" class="portfolio-btn">
+                <div class="port-logo-box">
+                    <img src="https://cdn-icons-png.flaticon.com/512/124/124037.png" alt="Dribbble">
+                </div>
+                <p>View design shots ↗</p>
+            </a>
+
+            <a href="https://99designs.com/profiles/januxdigital" target="_blank" class="portfolio-btn">
+                <div class="port-logo-box">
+                    <img src="https://assets.99static.com/workbench/assets/asimov/images/og-image-80cfd8beb6.png" alt="99designs">
+                </div>
+                <p>View contest wins ↗</p>
+            </a>
+
+            <a href="https://www.designcrowd.com/designer/744790/janux-digital" target="_blank" class="portfolio-btn">
+                <div class="port-logo-box">
+                    <img src="https://cf1.panelplace.com/public/images/subpanel/logos/4598/1659092942.png" alt="DesignCrowd">
+                </div>
+                <p>View freelance portfolio ↗</p>
+            </a>
+
+        </div>
+    </div>
+    </section>
+
+<!-- Image Lightbox Modal Overlay -->
+<div id="imageModal" class="image-modal-overlay" onclick="closeImageModal(event)">
+    <button class="modal-close" onclick="closeImageModalDirect()">&times;</button>
+    
+    <!-- Left Arrow (Desktop Side) -->
+    <button class="modal-arrow modal-prev desktop-arrow" onclick="changeSlide(-1, event)">&#10094;</button>
+    
+    <div class="modal-image-container">
+        <img id="modalImage" src="" alt="Enlarged Portfolio View">
+        
+        <!-- Mobile Bottom Center Arrows Container -->
+        <div class="mobile-arrows">
+            <button class="modal-arrow modal-prev" onclick="changeSlide(-1, event)">&#10094; Prev</button>
+            <button class="modal-arrow modal-next" onclick="changeSlide(1, event)">Next &#10095;</button>
+        </div>
+    </div>
+
+    <!-- Right Arrow (Desktop Side) -->
+    <button class="modal-arrow modal-next desktop-arrow" onclick="changeSlide(1, event)">&#10095;</button>
+</div>
+
+
+
+    <!-- =========================================
+         CTA BANNER SECTION
+    ========================================= -->
+    <section class="container" style="padding-top: 20px !important; padding-bottom: 80px !important;">
+        <div class="cta-banner">
+            <div class="cta-left">
+                <div class="cta-icon-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </div>
+                <div class="cta-text">
+                    <span class="cta-subtitle">Let's Work Together</span>
+                    <h3>Have a Project in Mind?</h3>
+                    <p>Contact me and let's create something amazing together.</p>
+                </div>
+            </div>
+            
+            <div class="cta-right" style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <a href="mailto:januxdig@gmail.com" class="btn-primary" style="margin-bottom: 0; background: transparent; border: 1px solid var(--glass-border); color: #25D366;">
+                    <img src="https://img.icons8.com/?size=48&id=qyRpAggnV0zH&format=png" alt="Email" style="width: 24px; height: 24px;">
+                    Email Me
+                </a>
+                <a href="https://wa.me/message/FFXQ6XWVXLOMD1" class="btn-primary" style="margin-bottom: 0; background: #25D366; color: #ffffff; border: none;">
+                    WhatsApp 
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px;">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================
+         FOOTER SECTION
+    ========================================= -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid-row">
+
+                <div class="footer-logo-col">
+                    <img src="assets/logodark.png" alt="Janux Digital" class="footer-logo-img logo-dark" onerror="this.src='https://placehold.co/150x50/000000/ffffff?text=Janux+Digital'">
+                    <img src="assets/logodark.png" alt="Janux Digital" class="footer-logo-img logo-light" onerror="this.src='https://placehold.co/150x50/ffffff/000000?text=Janux+Digital'">
+                </div>
+
+                <div class="footer-v-line"></div>
+
+                <div class="footer-contact-col">
+                    <h4 class="footer-head-green">Contact Information</h4>
+                    <a href="mailto:januxdig@gmail.com" class="footer-contact-link">
+                        <img src="https://img.icons8.com/?size=48&id=qyRpAggnV0zH&format=png" alt="Email" style="width: 20px; height: 20px;">
+                        januxdig@gmail.com
+                    </a>
+                    <a href="https://wa.me/message/FFXQ6XWVXLOMD1" class="footer-contact-link">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px; ">
+                        WhatsApp
+                    </a>
+                </div>
+
+                <div class="footer-v-line"></div>
+
+                <div class="footer-payment-col">
+                    <h4 class="footer-head-green">Payment Methods</h4>
+                    <div class="payment-badges">
+                        <div class="pay-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal"></div>
+                        <div class="pay-badge"><img src="https://vectorseek.com/wp-content/uploads/2023/09/Payoneer-New-2021-Logo-Vector.svg-.png" alt="Payoneer"></div>
+                        <div class="pay-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Ria_Main_Logo_Descriptor_Color_RGB.png" alt="Ria"></div>
+                        <div class="pay-badge"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAPvfATaZfmrEIr1LZMPUn8tZzXXXtgVm3KDml0IHowQ&s=10" alt="Visa"></div>
+                        <div class="pay-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/MasterCard_Logo.svg" alt="Mastercard"></div>
+                        <div class="pay-badge"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXE6MhZGUWK2b9YeFOizAr3M_JRFhTdR0LhpAo_MkQPF3om5iozaHvll8&s=10" alt="Sampath Bank"></div>
+                    </div>
+                </div>
+
+                <div class="footer-v-line"></div>
+
+                <div class="footer-social-col">
+                    <h4 class="footer-head-white">Follow Me</h4>
+                    <div class="social-circles">
+                        <a href="https://web.facebook.com/JanakaSKWije" class="soc-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                        <a href="https://dribbble.com/janaka-wijerathna" class="soc-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"></path></svg></a>
+                        <a href="https://www.behance.net/Janakawijerathna" class="soc-circle"><span style="font-weight: 700; font-size: 13px;">Be</span></a>
+                        <a href="https://www.linkedin.com/in/janaka-wijerathna/" class="soc-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom-bar">
+                <p>© 2026 Janux Digital. All Rights Reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#" onclick="openFooterXpop('terms', event)">Terms & Conditions</a>
+                    <a href="#" onclick="openFooterXpop('faq', event)">FAQ</a>
+                </div>
+                <p>Design • Create • Inspire</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Footer Document Modal (FAQ / Terms) -->
+    <div id="footer-xpop-modal" class="xpop-overlay" onclick="closeFooterXpop(event)">
+        <div class="service-xpop-content text-modal-content" onclick="event.stopPropagation()">
+            <button class="xpop-close" onclick="closeFooterXpop()">✕</button>
+            <div id="footer-xpop-body">
+                <!-- JS Injects FAQ/Terms Here -->
+            </div>
+        </div>
+    </div>
+
+<!-- =========================================
+    MOBILE FLOATING FLOATING NAVIGATION BAR
+========================================= -->
+<nav id="floatingNav" class="floating-nav-bar">
+    <div class="nav-pill-container">
+        
+        <!-- 1. Home -->
+        <a href="index.html" class="nav-item" onclick="setActiveNav(this)">
+            <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.12 510.95" width="24px" height="24px" fill="currentColor">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <path d="M378.74,419.61c-3.94-7.03-8.69-13.12-14.26-18.3-5.59-5.16-11.89-9.61-18.92-13.34-11.16-6.2-23.16-9.3-35.97-9.3-1.67,0-3.32.05-4.95.15-11.34.68-21.88,3.73-31.64,9.16-14.06,7.86-25.11,18.3-33.18,31.32-8.06,13.02-12.09,32.36-12.09,57.99v3.1c0,8.68-3.1,16.03-9.3,22.02-4.55,4.39-9.77,7.17-15.64,8.34h114.28c.76.12,1.54.2,2.35.2l71.44-.17v-33.5c0-12.81-1.04-23.88-3.1-33.18-2.08-9.3-5.08-17.47-8.99-24.5Z"/>
+      <path d="M497.19,222.15L288.91,13.8c-8.64-8.65-15.36-9.68-24.43-13.8h-17.96c-10.76,4.89-14.06,4.24-24.45,13.79L13.28,222.56c-9.08,10.16-8.6,13.6-13.28,23.96v17.96c.51.34,1.03.89,1.28,1.92,5.47,22.7,26.2,37.62,49.58,36.06,2.81-.19,3.85,1.37,3.85,4.06l.05,149.24c0,27.73,19.22,49.4,46.64,54.99l34.66.07c.11-.02.22-.05.33-.07,5.89-1.17,11.11-3.94,15.67-8.34,6.2-5.99,9.3-13.34,9.3-22.02v-3.1c0-28.53,5.58-54.58,16.74-78.15,11.16-23.57,28.94-42.79,53.34-57.68-1.66-1.24-3.21-2.58-4.65-4.03-1.46-1.44-3.01-2.79-4.66-4.03-14.06-13.23-25.02-27.91-32.87-44.04-7.85-16.12-12.61-35.35-14.26-57.68-.82-8.27,1.65-15.4,7.45-21.4,5.79-5.99,12.81-8.99,21.08-8.99h36.6v11.78c0,23.57,3.5,41.86,10.54,54.89,7.03,13.03,16.53,23.67,28.53,31.94,8.69,6.2,18.61,9.3,29.77,9.3s21.29-3.1,30.39-9.3c10.34-7.03,18.82-15.61,25.43-25.74,6.61-10.12,10.75-24.28,12.41-42.49l.63-1.24v-1.24c.81-7.85,4.12-14.47,9.92-19.85,5.79-5.37,12.81-8.06,21.08-8.06h35.36v11.78c.4,26.47-3.41,49.3-11.48,68.54-8.06,19.22-20.15,36.49-36.29,51.78-1.65,1.24-3.21,2.59-4.65,4.03-1.45,1.45-3.01,2.79-4.66,4.03,24.39,14.89,42.18,34.11,53.34,57.68,8.42,17.78,13.67,36.98,15.74,57.59,0-.39.03-.77.03-1.16l.04-149.05c0-2.73,1.07-4.23,3.91-4.05,23.99,1.54,44.86-13.98,49.97-37.77,3.24-15.08-1.66-31.26-12.95-42.56Z"/>
+    </g>
+  </g>
+</svg>
+        </a>
+        
+        <!-- 2. Experience (Suitcase) -->
+        <a href="index.html#experience" class="nav-item" onclick="setActiveNav(this)">
+            <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 521.53 490.01" width="22px" height="22px" fill="currentColor">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <path d="M491.42,276.52v19.32c-3.96,30.08-19.01,57.55-45.68,74.71l-.98,119.47h-.2c-.22-1.16-1.07-1.92-2.22-2.96l-51.09-45.85-54.11,48.46-.22-118.37c-40.89-26.04-57.29-76.41-39.97-121.16,16.83-43.5,62.06-70.22,109.47-62.89,45.19,6.99,79.26,43.54,85.01,89.27Z"/>
+      <g>
+        <rect class="cls-1" x="73.75" y="187.08" width="159.22" height="62.22" rx="31.11" ry="31.11"/>
+        <rect class="cls-1" x="73.75" y="79.63" width="220.44" height="62.22" rx="31.11" ry="31.11"/>
+        <path d="M244.92,291.19c0-80.79,65.49-146.28,146.28-146.28,56.85,0,106.12,32.43,130.33,79.8V96.51c0-31.88-19.11-59.15-45.07-76.62-12.94-9.24-28.13-15.73-44.92-18.69-2.6-.5-5.2-.91-7.8-1.21h-162.98S97.79,0,97.79,0c-2.6.3-5.2.71-7.8,1.21-16.79,2.96-31.98,9.44-44.92,18.68C19.11,37.37,0,64.64,0,96.51v222.64c6.46,54.81,51.05,97.23,108.18,97.21l152.58-.05,54.66.02c-42.26-25.65-70.5-72.1-70.5-125.15ZM73.75,110.74c0-17.11,14-31.11,31.11-31.11h158.22c17.11,0,31.11,14,31.11,31.11h0c0,17.11-14,31.11-31.11,31.11H104.86c-17.11,0-31.11-14-31.11-31.11h0ZM232.97,218.19c0,17.11-14,31.11-31.11,31.11h-97c-17.11,0-31.11-14-31.11-31.11h0c0-17.11,14-31.11,31.11-31.11h97c17.11,0,31.11,14,31.11,31.11h0Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
+        </a>
+        
+        <!-- 3. Services (Gear) -->
+        <a href="services.html" class="nav-item" onclick="setActiveNav(this)">
+            <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 585.09 496" width="24px" height="24px" fill="currentColor">
+            <g id="Layer_1-2" data-name="Layer 1">
+                <g>
+                <path d="M373.04,319.76c-22.53,7.42-39.46,22.64-48.9,43.85-41.98,15.9-77.1,43.91-102.28,81.28-23.83,35.35-64.4,54.47-107.17,49.76-39.49-4.35-75.79-30.1-91.42-67.39C-43.46,268.12,38.66,85.76,201.49,29.59c93.35-32.2,197.98-15.96,277.97,44.7l-100.31,217.26c-4.16,9.02-5.87,17.25-6.11,28.21ZM388.13,120.73c0-28.1-22.78-50.87-50.87-50.87s-50.87,22.78-50.87,50.87,22.78,50.87,50.87,50.87,50.87-22.78,50.87-50.87ZM235.4,165.28c0-28.1-22.78-50.87-50.87-50.87s-50.87,22.78-50.87,50.87,22.78,50.87,50.87,50.87,50.87-22.78,50.87-50.87ZM171.76,311.64c0-28.1-22.78-50.87-50.87-50.87s-50.87,22.78-50.87,50.87,22.78,50.87,50.87,50.87,50.87-22.78,50.87-50.87Z"/>
+                <g>
+                    <path d="M344.77,449.84l-4.19-28.41c-1.96-17.72.3-35.02,8.53-50.86,11.12-21.39,34.08-32.26,59.01-27.81-10.17-12.43-12.05-27.23-5.37-41.69L535.87,13.12c5.49-11.87,19.45-15.89,30.38-11.21,11.1,4.75,17.53,17.34,12.98,29.71l-109.59,297.9c-5.95,16.18-19.99,25.16-38.06,24.86,20.36,18.28,24.01,44.58,12.17,67.91-20.44,40.27-58.9,68.72-105.1,73.72,5.98-15.72,8.47-30.27,6.12-46.16Z"/>
+                    <path d="M483.69,357.09c3.37-6.61,7.27-11.8,9.91-18.96l64.39-174.89c8.44,13.27,14.8,26.92,20.22,42.04,12.1,33.74,8.41,70.62-12.36,102.06-17.17,25.98-46.82,46.12-82.15,49.76Z"/>
+                </g>
+                </g>
+            </g>
+            </svg>
+        </a>
+        
+        <!-- 4. Portfolio (Photo Grid) -->
+        <a href="portfolio.html" class="nav-item active" onclick="setActiveNav(this)">
+            <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 539.31 476.32" width="24px" height="24px" fill="currentColor">
+                <g id="Layer_1-2" data-name="Layer 1">
+                    <g>
+                    <path d="M432.32,90.54H106.99C47.9,90.54,0,138.44,0,197.53v171.81c0,59.09,47.9,106.99,106.99,106.99h325.33c59.09,0,106.99-47.9,106.99-106.99v-171.81c0-59.09-47.9-106.99-106.99-106.99ZM250.42,131.88c8.04-11.66,21.49-19.31,36.73-19.31s28.7,7.65,36.73,19.31c4.94,7.17,7.85,15.86,7.85,25.23,0,24.6-19.96,44.55-44.58,44.55s-44.58-19.95-44.58-44.55c0-9.37,2.9-18.06,7.85-25.23ZM493.95,377.22c0,41.72-33.82,75.55-75.55,75.55H120.9c-28.35,0-53.05-15.62-65.97-38.73-5.5-9.84-4.38-22.04,2.77-30.75l76.32-92.84c14.87-18.09,40.87-18.73,56.25-1.17l72.9,85.64c13,15.27,35.98,14.74,48.86-.39l73.01-85.76c13.76-16.16,39.23-17.86,53.79-.68l48.61,57.34c4.2,4.95,6.5,11.23,6.5,17.72v14.07Z"/>
+                    <path d="M440.19,67.28c0-14.73-11.94-26.67-26.67-26.67H114.86c-14.73,0-26.67,11.94-26.67,26.67v7.16h352v-7.16Z"/>
+                    <path d="M406.71,26.67c0-14.73-11.94-26.67-26.67-26.67h-231.7c-14.73,0-26.67,11.94-26.67,26.67h0s285.04,0,285.04,0h0Z"/>
+                    </g>
+                </g>
+                </svg>
+        </a>
+        
+    </div>
+</nav>
+
+     <!-- =========================================
+         FLOATING WIDGETS
+    ========================================= -->
+    
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()">
+        ↑
+    </button>
+
+    <!-- Floating Contact Widget -->
+    <div class="floating-contact-wrapper" id="floating-contact">
+        <div class="floating-options">
+            <a href="mailto:januxdig@gmail.com" class="float-btn email-float">
+                <div class="float-icon-box" style="background: #ffffff; color: #000;"><img src="https://img.icons8.com/?size=48&id=qyRpAggnV0zH&format=png" alt="Email" style="width: 24px; height: 24px;"></div>
+                <span>Email Me</span>
+            </a>
+            <a href="https://wa.me/message/FFXQ6XWVXLOMD1" class="float-btn wa-float">
+                <div class="float-icon-box" style="background: transparent;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 40px; height: 40px; margin-left: 10px;">
+                </div>
+                <span>WhatsApp</span>
+            </a>
+        </div>
+        
+        <button class="float-main-btn" onclick="toggleFloatingContact()">     
+            <span class="float-text" style="color: #1d3317;">Let's Talk</span>
+            <span class="float-close">✕</span>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+
+<!-- =========================================
+     AI CHATBOT WIDGET
+========================================= -->
+<div class="chatbot-wrapper" id="chatbot-widget">
+    <!-- Chat Window -->
+    <div class="chatbot-window" id="chatbot-window">
+        <div class="chatbot-header">
+            <div class="chatbot-header-info">
+                <div class="chatbot-avatar">
+                    <img src="assets/botico.svg" alt="Janux AI" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                <div>
+                    <h4>Janux Assistant</h4>
+                    <span class="chatbot-status">Online</span>
+                </div>
+            </div>
+            <button class="chatbot-close-btn" onclick="toggleChatbot()">✕</button>
+        </div>
+
+        <div class="chatbot-messages" id="chatbot-messages">
+            <div class="chat-bubble bot">
+                Hello! I am Janaka's AI assistant. Ask me anything about design services, pricing, timelines, or revision policies!
+            </div>
+        </div>
+
+        <form class="chatbot-input-area" id="chatbot-form" onsubmit="handleChatSubmit(event)">
+            <input 
+                type="text" 
+                id="chatbot-input" 
+                placeholder="Ask about pricing, turnaround..." 
+                autocomplete="off" 
+                required 
+            />
+            <button type="submit" aria-label="Send Message">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </form>
+    </div>
+
+    <!-- Toggle Floating Button -->
+<button class="chatbot-toggle-btn" onclick="toggleChatbot()" aria-label="Open AI Chat">
+    <svg id="bot-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 43.06 43.06">
+      <defs>
+        <style>
+          .cls-1 { filter: url(#outer-glow-1); }
+          .cls-1, .cls-2 { fill: #5bcd5a; }
+          .cls-3 { fill: #acb6c1; }
+          .cls-4 { fill: none; }
+          .cls-5 { fill: url(#linear-gradient-4); }
+          .cls-6 { fill: url(#radial-gradient); }
+          .cls-7 { fill: url(#linear-gradient-2); opacity: .39; }
+          .cls-7, .cls-8 { mix-blend-mode: multiply; }
+          .cls-9, .cls-8 { fill: url(#linear-gradient-3); }
+          .cls-10 { isolation: isolate; }
+          .cls-2 { filter: url(#outer-glow-2); }
+          .cls-11 { fill: url(#linear-gradient); }
+          .cls-12 { clip-path: url(#clippath); }
+          .cls-8 { opacity: .36; }
+        </style>
+        <linearGradient id="linear-gradient" x1="8.52" y1="38.77" x2="34.22" y2="4.73" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#aeb9c4"/>
+          <stop offset=".2" stop-color="#c3ccd5"/>
+          <stop offset=".44" stop-color="#d4dbe2"/>
+          <stop offset=".69" stop-color="#dee5ea"/>
+          <stop offset="1" stop-color="#e2e8ed"/>
+        </linearGradient>
+        <clipPath id="clippath">
+          <path class="cls-4" d="M43.06,21.53c0,11.89-9.64,21.53-21.53,21.53-3.43,0-6.67-.8-9.55-2.23-1.61-.8-3.11-1.79-4.46-2.95-1.51-1.3-2.84-2.8-3.95-4.46-2.26-3.41-3.58-7.5-3.58-11.9C0,9.64,9.64,0,21.53,0s21.53,9.64,21.53,21.53Z"/>
+        </clipPath>
+        <linearGradient id="linear-gradient-2" x1="32.72" y1="43.91" x2="13.06" y2="43.2" xlink:href="#linear-gradient"/>
+        <linearGradient id="linear-gradient-3" x1="4.93" y1="32.76" x2="2.65" y2="29.89" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#aeb9c4"/>
+          <stop offset="1" stop-color="#e2e8ed"/>
+        </linearGradient>
+        <linearGradient id="linear-gradient-4" x1="14.15" y1="34.23" x2="27.43" y2="6.53" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#313a43"/>
+          <stop offset="1" stop-color="#000"/>
+        </linearGradient>
+        <radialGradient id="radial-gradient" cx="29.75" cy="8.48" fx="29.75" fy="8.48" r="31.06" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#222a33"/>
+          <stop offset=".15" stop-color="#1d252d"/>
+          <stop offset=".73" stop-color="#0f171e"/>
+        </radialGradient>
+        <filter id="outer-glow-1" x="10.57" y="10.81" width="11.28" height="14.16" filterUnits="userSpaceOnUse">
+          <feOffset dx="0" dy="0"/>
+          <feGaussianBlur result="blur" stdDeviation="1"/>
+          <feFlood flood-color="#16f70f" flood-opacity=".54"/>
+          <feComposite in2="blur" operator="in"/>
+          <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="outer-glow-2" x="21.77" y="10.53" width="12" height="15" filterUnits="userSpaceOnUse">
+          <feOffset dx="0" dy="0"/>
+          <feGaussianBlur result="blur-2" stdDeviation="1"/>
+          <feFlood flood-color="#16f70f" flood-opacity=".54"/>
+          <feComposite in2="blur-2" operator="in"/>
+          <feComposite in="SourceGraphic"/>
+        </filter>
+      </defs>
+      <g class="cls-10">
+        <g id="Layer_2" data-name="Layer 2">
+          <g id="Layer_1-2" data-name="Layer 1">
+            <g>
+              <path class="cls-11" d="M43.06,21.53c0,11.89-9.64,21.53-21.53,21.53-3.43,0-6.67-.8-9.55-2.23-1.61-.8-3.11-1.79-4.46-2.95-1.51-1.3-2.84-2.8-3.95-4.46-2.26-3.41-3.58-7.5-3.58-11.9C0,9.64,9.64,0,21.53,0s21.53,9.64,21.53,21.53Z"/>
+              <g class="cls-12">
+                <ellipse class="cls-7" cx="23.82" cy="43.59" rx="17.14" ry="5.68"/>
+              </g>
+              <path class="cls-9" d="M3.31,25.23s-3.57,6.93-2.62,7.98c.58.63,1.61.76,2.35.76.48,0,.96-.11,1.39-.32l4.2-2"/>
+              <path class="cls-8" d="M3.31,25.23s-3.57,6.93-2.62,7.98c.58.63,1.61.76,2.35.76.48,0,.96-.11,1.39-.32l4.2-2"/>
+              <path class="cls-3" d="M21.19,3.17C10.22,3.17,1.32,10.59,1.32,19.74c0,2.26.55,4.41,1.54,6.37l-1,3.86c-.26.94.18,1.77,1.39,1.89l4.79.09c1.45,1.05,3.23,2.23,5,2.9,2.49.94,5.25,1.46,8.16,1.46,10.97,0,19.87-7.42,19.87-16.57S32.17,3.17,21.19,3.17Z"/>
+              <path class="cls-5" d="M21.19,3.62C10.52,3.62,1.87,10.75,1.87,19.54c0,2.05.48,4.01,1.34,5.81.1.2.12.43.06.64l-1.01,3.65c-.25.9.44,1.79,1.4,1.81l4.61.09c.18,0,.35.06.5.16,1.35.94,2.86,1.74,4.5,2.35,2.42.9,5.11,1.4,7.93,1.4,10.67,0,19.32-7.12,19.32-15.91S31.86,3.62,21.19,3.62Z"/>
+              <path class="cls-6" d="M21.19,5.54c-9.39,0-16.99,6.27-16.99,14,0,1.81.42,3.53,1.18,5.12.08.17.1.37.05.55l-.89,3.22c-.22.79.38,1.57,1.23,1.59l4.06.08c.16,0,.3.05.43.14,1.19.83,2.52,1.53,3.96,2.07,2.13.79,4.49,1.23,6.98,1.23,9.39,0,16.99-6.27,16.99-14s-7.61-14-16.99-14Z"/>
+            </g>
+            
+            <!-- NEW: Grouped the eyes and added the animation classes -->
+            <g id="bot-eyes-group">
+                <rect class="cls-1 bot-eye left-eye" x="13.79" y="14.04" width="4.94" height="7.83" rx="2.47" ry="2.47"/>
+                <rect class="cls-2 bot-eye right-eye" x="24.94" y="14.04" width="4.94" height="7.83" rx="2.47" ry="2.47"/>
+            </g>
+            
+          </g>
+        </g>
+      </g>
+    </svg>
+</button>
+</div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

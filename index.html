@@ -13,6 +13,8 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css">
+    <!--pages-->
+    
 </head>
 <body>
 
@@ -52,8 +54,8 @@
                 <ul id="nav-menu">
                     <li><a href="#home" class="active">Home</a></li>
                     <li><a href="#experience">Work Experience</a></li>
-                    <li><a href="#services">Design Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="services.html">Design Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
                 </ul>
             </nav>
         </div>
@@ -62,7 +64,11 @@
     <!-- =========================================
          HERO SECTION
     ========================================= -->
-    <section id="home" class="container">
+    <!-- =========================================
+     HERO SECTION
+========================================= -->
+<section id="home" class="hero-section">
+    <div class="container">
         <div class="hero">
             <div class="hero-text">
                 <span class="hero-welcome">Welcome</span>
@@ -112,7 +118,7 @@
             
             <div class="hero-image">
                 <div class="image-wrapper">
-                    <img src="assets/prox.webp" alt="Janaka Wijerathna" onerror="this.src='https://placehold.co/300x300?text=Janaka+Wijerathna';">
+                    <img src="assets/pro3.webp" alt="Janaka Wijerathna" onerror="this.src='https://placehold.co/300x300?text=Janaka+Wijerathna';">
                     <div class="floating-brand-text">
                         Good<br>Design<br>Builds<br>Brands
                         <svg class="swoosh" viewBox="0 0 100 20" preserveAspectRatio="none">
@@ -122,7 +128,8 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- =========================================
          TESTIMONIALS SECTION
@@ -152,7 +159,7 @@
                                 <p>"We have worked with Janaka for the past 7+ years and have been extremely satisfied. Not only is the work itself great, but Janaka is so responsive and easy to work with. He listens to our needs and feedback..."</p>
                                 <a href="https://www.upwork.com/freelancers/~01122ec8914e230def?mp_source=share" class="original-link">View Original Review ↗</a>
                                 <div class="client-info">
-                                    <img src="https://media.licdn.com/dms/image/v2/C4E03AQFXm6LwBrX3rg/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1516306733027?e=1790812800&v=beta&t=82mhDSfyoXkx2w89iVqmI0HTx4kk16-4tIXvmm7ELgc" alt="Client">
+                                    <img src="https://pbs.twimg.com/profile_images/2175659351/Picture1_-_Copy_400x400.jpg" alt="Client">
                                     <div class="client-details">
                                         <h4>Kenneth S.</h4>
                                         <p>Founder & CEO</p>
@@ -197,7 +204,7 @@
                                 <p>"Janu was wonderful as always, great eye for design and good communication"</p>
                                 <a href="https://99designs.com/profiles/januxdigital/reviews/785370" class="original-link">View Original Review ↗</a>
                                 <div class="client-info">
-                                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQHCgyg-KEsEzA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1683924470434?e=1790812800&v=beta&t=JVUOpt4yOyMf4ErFzfR23QCCJ7blj23YFkG6-j2_Rg4" alt="Client">
+                                    <img src="https://cdn.ymaws.com/www.strategyassociation.org/resource/resmgr/2021_conference/speakers/headshots/yvette_montero_salvatico.jpg" alt="Client">
                                     <div class="client-details">
                                         <h4>Yvette Montero Salvatico</h4>
                                         <p>Co-Founder and Managing Director, TFSX</p>
@@ -212,7 +219,7 @@
                                 <p>"Amazing Great job you are the best! Thanks"</p>
                                 <a href="https://99designs.com/profiles/januxdigital/reviews/748592" class="original-link">View Original Review ↗</a>
                                 <div class="client-info">
-                                    <img src="https://media.licdn.com/dms/image/v2/D5603AQHeoz5Ls4tZDQ/profile-displayphoto-scale_200_200/B56Zk1gajLHMAY-/0/1757539314423?e=1790812800&v=beta&t=vbSBpNS975s7kAJ09BJBC09U3G9lrDmxBzV1eva2a8s" alt="Client">
+                                    <img src="https://imageio.forbes.com/specials-images/imageserve/6ab2c5d77018d16bc08ada71/0x0.jpg" alt="Client">
                                     <div class="client-details">
                                         <h4>Wayne H.</h4>
                                         <p>Founder and CEO, National Processing.</p>
@@ -300,10 +307,12 @@
         </div>
     </section>
 
+ 
     <!-- =========================================
          WORK EXPERIENCE
     ========================================= -->
-    <section id="experience" class="container work-experience-section">
+    <!-- Added inline styling to reduce the bottom margin and padding -->
+    <section id="experience" class="container work-experience-section" style="margin-bottom: 0px; padding-bottom: 0;">
         <div class="work-exp-wrapper">
              <!-- Right Side: Sticky Text Content -->
             <div class="work-exp-text">
@@ -315,10 +324,10 @@
             </div>
             
             <!-- Left Side: Interactive Expandable Cards -->
-            <div class="work-exp-cards">
+            <div class="work-exp-cards" style="width: 100%;">
                 
                 <!-- 99designs Card -->
-                <div class="exp-hover-card card-99designs">
+                <div class="exp-hover-card card-99designs" style="width: 100%;">
                     <div class="exp-card-header">
                         <div class="exp-logo-title">
                             <div class="exp-logo" style="background: #ffffff;">
@@ -329,7 +338,7 @@
                                 <p>Mid Level Designer Certification <span class="dot-sep">•</span> Since Aug 2018</p>
                             </div>
                         </div>
-                        <button class="btn-view-profile" onclick="window.open('https://99designs.com/profiles/januxdigital')">View Profile ↗</button>
+                        <!-- View Profile Button Removed -->
                     </div>
                     <div class="exp-stats-container">
                         <div class="exp-stats-grid-4">
@@ -342,7 +351,7 @@
                 </div>
 
                 <!-- DesignCrowd Card -->
-                <div class="exp-hover-card card-designcrowd">
+                <div class="exp-hover-card card-designcrowd" style="width: 100%;">
                     <div class="exp-card-header">
                         <div class="exp-logo-title">
                             <div class="exp-logo" style="background: #ffffff;">
@@ -353,7 +362,7 @@
                                 <p>Freelance Designer <span class="dot-sep">•</span> Since Aug 2018</p>
                             </div>
                         </div>
-                        <button class="btn-view-profile" onclick="window.open('https://www.designcrowd.com/designer/744790/janux-digital')">View Profile ↗</button>
+                        <!-- View Profile Button Removed -->
                     </div>
                     <div class="exp-stats-container">
                         <div class="exp-stats-grid-4">
@@ -366,7 +375,7 @@
                 </div>
 
                 <!-- Fiverr Card -->
-                <div class="exp-hover-card card-fiverr">
+                <div class="exp-hover-card card-fiverr" style="width: 100%;">
                     <div class="exp-card-header">
                         <div class="exp-logo-title">
                             <div class="exp-logo" style="background: #ffffff;">
@@ -377,7 +386,7 @@
                                 <p>Level 2 Freelance Designer <span class="dot-sep">•</span> Since Jan 2019</p>
                             </div>
                         </div>
-                        <button class="btn-view-profile" onclick="window.open('https://www.fiverr.com/januxart')">View Profile ↗</button>
+                        <!-- View Profile Button Removed -->
                     </div>
                     <div class="exp-stats-container">
                         <div class="exp-stats-grid-4">
@@ -396,9 +405,10 @@
     <!-- =========================================
          LONGTERM CLIENTS SECTION
     ========================================= -->
-    <section id="longterm-clients" class="container">
-        <span class="section-subtitle">Partnerships</span>
-        <h2 style="margin-bottom: 30px;">Longterm Clients</h2>
+    
+    <section id="longterm-clients" class="container" style="margin-top: 0; padding-top: 0px;">
+        
+        <h2 style="margin-bottom: 30px;">Longterm Partnerships</h2>
         
         <div class="clients-row">
             
@@ -503,325 +513,7 @@
         </div>
     </section>
 
-    <!-- Glassmorphism Section Divider -->
-    <hr class="full-width-divider">
-
-    <!-- =========================================
-         DESIGN SERVICES SECTION
-    ========================================= -->
-    <section id="services" class="container">
-        
-        <div class="services-header-wrapper">
-            <div class="services-header-left">
-                <span class="section-subtitle">What I Do</span>
-                <h2>Design <span style="color: var(--accent-green);">Services</span></h2>
-                <p>Creative designs that bring your ideas to life. Professional, high-quality and tailored to your needs.</p>
-            </div>
-            
-            <div class="services-header-right">
-                <div class="service-feature">
-                    <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-                    <div class="feature-text">
-                        <h4>Fast Delivery</h4>
-                        <p>On time, every time.</p>
-                    </div>
-                </div>
-                <div class="feature-divider"></div>
-                <div class="service-feature">
-                    <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></div>
-                    <div class="feature-text">
-                        <h4>High Quality</h4>
-                        <p>Pixel perfect results.</p>
-                    </div>
-                </div>
-                <div class="feature-divider"></div>
-                <div class="service-feature">
-                    <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></div>
-                    <div class="feature-text">
-                        <h4>Client Focused</h4>
-                        <p>Your satisfaction matters.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- 3-Column Grid (Desktop Only) -->
-        <div class="services-grid-3col">
-            <div class="service-item-card" onclick="openServiceXpop('logo')">
-                <div class="svc-card-img"><img src="https://img.magnific.com/premium-psd/embossed-green-logo-mockup_1123056-1457.jpg?w=360" alt="Logo"></div>
-                <div class="svc-card-content">
-                    <div class="svc-card-header">
-                        <h4>Logo & Brand Identity</h4>
-                        <div class="svc-price">$69+</div>
-                    </div>
-                    <div class="btn-view-details">View details →</div>
-                </div>
-            </div>
-
-            <div class="service-item-card" onclick="openServiceXpop('flyer')">
-                <div class="svc-card-img"><img src="https://img.magnific.com/premium-psd/creative-flyer-cover-presentation-set-psd-mockup-design-4_263274-2142.jpg?w=360" alt="Flyer"></div>
-                <div class="svc-card-content">
-                    <div class="svc-card-header">
-                        <h4>Flyer Design</h4>
-                        <div class="svc-price">$49+</div>
-                    </div>
-                    <div class="btn-view-details">View details →</div>
-                </div>
-            </div>
-
-            <div class="service-item-card" onclick="openServiceXpop('billboard')">
-                <div class="svc-card-img"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/965559254213755.6a7d585af1d85.jpg" alt="Billboard"></div>
-                <div class="svc-card-content">
-                    <div class="svc-card-header">
-                        <h4>Billboard Design</h4>
-                        <div class="svc-price">$189+</div>
-                    </div>
-                    <div class="btn-view-details">View details →</div>
-                </div>
-            </div>
-
-            <div class="service-item-card" onclick="openServiceXpop('rollup')">
-                <div class="svc-card-img"><img src="https://img.magnific.com/premium-psd/modern-green-standing-banner-mockup-design-professional-roll-up-display-business-presentation_1063285-466.jpg?semt=ais_hybrid&w=740&q=80" alt="Rollup"></div>
-                <div class="svc-card-content">
-                    <div class="svc-card-header">
-                        <h4>Rollup Banner</h4>
-                        <div class="svc-price">$89+</div>
-                    </div>
-                    <div class="btn-view-details">View details →</div>
-                </div>
-            </div>
-
-            <div class="service-item-card" onclick="openServiceXpop('booth')">
-                <div class="svc-card-img"><img src="https://img.magnific.com/premium-photo/sustainability-conference-branding-mockup-integrate-logo-into-ecofriendly-booth-designs-digital-screens-event-materials_1029473-131997.jpg?semt=ais_hybrid&w=740&q=80" alt="Booth"></div>
-                <div class="svc-card-content">
-                    <div class="svc-card-header">
-                        <h4>Trade Show Booth</h4>
-                        <div class="svc-price">$249+</div>
-                    </div>
-                    <div class="btn-view-details">View details →</div>
-                </div>
-            </div>
-
-            <div class="service-item-card" onclick="openServiceXpop('cards')">
-                <div class="svc-card-img"><img src="https://img.magnific.com/premium-psd/business-card-mockup_333051-66.jpg?semt=ais_hybrid&w=740&q=80" alt="Cards"></div>
-                <div class="svc-card-content">
-                    <div class="svc-card-header">
-                        <h4>Business Cards</h4>
-                        <div class="svc-price">$29+</div>
-                    </div>
-                    <div class="btn-view-details">View details →</div>
-                </div>
-            </div>
-
-            <div class="service-item-card" onclick="openServiceXpop('brochure')">
-                <div class="svc-card-img"><img src="https://img.magnific.com/premium-psd/trifold-brochure-invitation-mockup_550856-51.jpg?semt=ais_hybrid&w=740&q=80" alt="Brochures"></div>
-                <div class="svc-card-content">
-                    <div class="svc-card-header">
-                        <h4>Brochures</h4>
-                        <div class="svc-price">$99+</div>
-                    </div>
-                    <div class="btn-view-details">View details →</div>
-                </div>
-            </div>
-
-            <div class="service-item-card" onclick="openServiceXpop('stationery')">
-                <div class="svc-card-img"><img src="https://img.magnific.com/premium-psd/stationery-branding-mockup-scene-creator_502896-715.jpg?semt=ais_hybrid&w=740&q=80" alt="Stationery"></div>
-                <div class="svc-card-content">
-                    <div class="svc-card-header">
-                        <h4>Stationeries</h4>
-                        <div class="svc-price">$79+</div>
-                    </div>
-                    <div class="btn-view-details">View details →</div>
-                </div>
-            </div>
-
-            <div class="service-item-card" onclick="openServiceXpop('poster')">
-                <div class="svc-card-img"><img src="https://img.magnific.com/premium-psd/frame-poster-mockup-with-abstract-green-artwork_392242-354.jpg?semt=ais_hybrid&w=740&q=80" alt="Poster"></div>
-                <div class="svc-card-content">
-                    <div class="svc-card-header">
-                        <h4>Poster Design</h4>
-                        <div class="svc-price">$79+</div>
-                    </div>
-                    <div class="btn-view-details">View details →</div>
-                </div>
-            </div>
-
-            <div class="service-item-card" onclick="openServiceXpop('web')">
-                <div class="svc-card-img"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeT144_1NxUo9a6deGrdc4cGHt7Uo408Nli2-mC4TKrw&s=10" alt="Web"></div>
-                <div class="svc-card-content">
-                    <div class="svc-card-header">
-                        <h4>Web Assets</h4>
-                        <div class="svc-price">$99+</div>
-                    </div>
-                    <div class="btn-view-details">View details →</div>
-                </div>
-            </div>
-
-            <div class="service-item-card" onclick="openServiceXpop('info')">
-                <div class="svc-card-img"><img src="https://img.magnific.com/free-vector/eco-infography-labels-design_23-2147492876.jpg?semt=ais_hybrid&w=740&q=80" alt="Infographics"></div>
-                <div class="svc-card-content">
-                    <div class="svc-card-header">
-                        <h4>Infographics</h4>
-                        <div class="svc-price">$119+</div>
-                    </div>
-                    <div class="btn-view-details">View details →</div>
-                </div>
-            </div>
-
-            <div class="service-item-card" onclick="openServiceXpop('pack')">
-                <div class="svc-card-img"><img src="https://img.magnific.com/premium-psd/box-packaging-product-mockups-with-branding-elements-logo-presentation_1267932-63.jpg?semt=ais_hybrid&w=740&q=80" alt="Packaging"></div>
-                <div class="svc-card-content">
-                    <div class="svc-card-header">
-                        <h4>Packaging</h4>
-                        <div class="svc-price">$129+</div>
-                    </div>
-                    <div class="btn-view-details">View details →</div>
-                </div>
-            </div>
-
-            <div class="service-item-card" onclick="openServiceXpop('cv')">
-                <div class="svc-card-img"><img src="https://img.magnific.com/premium-photo/professional-cv-resume-with-vitae-curriculum-template_1155130-7708.jpg?semt=ais_hybrid&w=740&q=80" alt="Resume"></div>
-                <div class="svc-card-content">
-                    <div class="svc-card-header">
-                        <h4>Resume/CV</h4>
-                        <div class="svc-price">$49+</div>
-                    </div>
-                    <div class="btn-view-details">View details →</div>
-                </div>
-            </div>
-
-            <div class="service-item-card" onclick="openServiceXpop('word')">
-                <div class="svc-card-img"><img src="https://img.magnific.com/premium-psd/professional-letterhead-mockup-branding-presentation_1268373-528.jpg?semt=ais_hybrid&w=740&q=80" alt="Word Doc"></div>
-                <div class="svc-card-content">
-                    <div class="svc-card-header">
-                        <h4>Word Doc./Template</h4>
-                        <div class="svc-price">$89+</div>
-                    </div>
-                    <div class="btn-view-details">View details →</div>
-                </div>
-            </div>
-
-            <div class="service-item-card" onclick="openServiceXpop('ppt')">
-                <div class="svc-card-img"><img src="https://img.magnific.com/premium-psd/perspective-presentation-slide-mockup_569734-202.jpg?semt=ais_hybrid&w=740&q=80" alt="Powerpoint"></div>
-                <div class="svc-card-content">
-                    <div class="svc-card-header">
-                        <h4>PowerPoint Presentation</h4>
-                        <div class="svc-price">$89+</div>
-                    </div>
-                    <div class="btn-view-details">View details →</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Service Modal Overlay -->
-        <div id="service-xpop-modal" class="xpop-overlay" onclick="closeServiceXpop(event)">
-            <div class="service-xpop-content" onclick="event.stopPropagation()">
-                <div class="service-xpop-layout" id="service-xpop-body"></div>
-                <button class="xpop-close" onclick="closeServiceXpop()">✕</button>
-            </div>
-        </div>
-
-        <!-- Mobile Services Accordion (Hidden on Desktop) -->
-        <div class="services-mobile-accordion">
-            <div class="accordion-category">
-                <button class="accordion-header" onclick="toggleAccordion(this)">Branding & Print <span>+</span></button>
-                <div class="accordion-body">
-                    <div class="mobile-service-item" onclick="openServiceXpop('logo')">Logo & Brand Identity</div>
-                    <div class="mobile-service-item" onclick="openServiceXpop('flyer')">Flyer Design</div>
-                    <div class="mobile-service-item" onclick="openServiceXpop('brochure')">Brochures</div>
-                    <div class="mobile-service-item" onclick="openServiceXpop('stationery')">Stationeries</div>
-                    <div class="mobile-service-item" onclick="openServiceXpop('cards')">Business Cards</div>
-                    <div class="mobile-service-item" onclick="openServiceXpop('poster')">Poster Design</div>
-                </div>
-            </div>
-            
-            <div class="accordion-category">
-                <button class="accordion-header" onclick="toggleAccordion(this)">Large Format & Events <span>+</span></button>
-                <div class="accordion-body">
-                    <div class="mobile-service-item" onclick="openServiceXpop('billboard')">Billboard Design</div>
-                    <div class="mobile-service-item" onclick="openServiceXpop('rollup')">Rollup Banner</div>
-                    <div class="mobile-service-item" onclick="openServiceXpop('booth')">Trade Show Booth</div>
-                </div>
-            </div>
-            
-            <div class="accordion-category">
-                <button class="accordion-header" onclick="toggleAccordion(this)">Digital & Corporate <span>+</span></button>
-                <div class="accordion-body">
-                    <div class="mobile-service-item" onclick="openServiceXpop('web')">Web Assets</div>
-                    <div class="mobile-service-item" onclick="openServiceXpop('info')">Infographics</div>
-                    <div class="mobile-service-item" onclick="openServiceXpop('ppt')">PowerPoint Presentation</div>
-                    <div class="mobile-service-item" onclick="openServiceXpop('word')">Word Doc./Template</div>
-                    <div class="mobile-service-item" onclick="openServiceXpop('cv')">Resume/CV</div>
-                </div>
-            </div>
-            
-            <div class="accordion-category">
-                <button class="accordion-header" onclick="toggleAccordion(this)">Product & Packaging <span>+</span></button>
-                <div class="accordion-body">
-                    <div class="mobile-service-item" onclick="openServiceXpop('pack')">Packaging Design</div>
-                </div>
-            </div>
-        </div>
-
-        <script>
-            function toggleAccordion(btn) {
-                btn.classList.toggle('active');
-                var body = btn.nextElementSibling;
-                if (body.style.maxHeight) {
-                    body.style.maxHeight = null;
-                    btn.querySelector('span').innerText = '+';
-                } else {
-                    body.style.maxHeight = body.scrollHeight + "px";
-                    btn.querySelector('span').innerText = '-';
-                }
-            }
-        </script>
-        
-    </section>
-
-    <!-- Glassmorphism Section Divider -->
-    <hr class="full-width-divider">
-
-    <!-- =========================================
-         PORTFOLIO SECTION
-    ========================================= -->
-    <section id="portfolio" class="container">
-        <span class="section-subtitle">My Work</span>
-        <h2>Portfolio Showcase</h2>
-
-        <div class="portfolio-links-grid">
-            
-            <a href="https://www.behance.net/Janakawijerathna" target="_blank" class="portfolio-btn">
-                <div class="port-logo-box">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2496/2496088.png" alt="Behance">
-                </div>
-                <p>View creative projects ↗</p>
-            </a>
-
-            <a href="https://dribbble.com/janaka-wijerathna" target="_blank" class="portfolio-btn">
-                <div class="port-logo-box">
-                    <img src="https://cdn-icons-png.flaticon.com/512/124/124037.png" alt="Dribbble">
-                </div>
-                <p>View design shots ↗</p>
-            </a>
-
-            <a href="https://99designs.com/profiles/januxdigital" target="_blank" class="portfolio-btn">
-                <div class="port-logo-box">
-                    <img src="https://assets.99static.com/workbench/assets/asimov/images/og-image-80cfd8beb6.png" alt="99designs">
-                </div>
-                <p>View contest wins ↗</p>
-            </a>
-
-            <a href="https://www.designcrowd.com/designer/744790/janux-digital" target="_blank" class="portfolio-btn">
-                <div class="port-logo-box">
-                    <img src="https://cf1.panelplace.com/public/images/subpanel/logos/4598/1659092942.png" alt="DesignCrowd">
-                </div>
-                <p>View freelance portfolio ↗</p>
-            </a>
-
-        </div>
-    </section>
-
+   
     <!-- =========================================
          CTA BANNER SECTION
     ========================================= -->
@@ -873,7 +565,7 @@
                     </a>
                     <a href="https://wa.me/message/FFXQ6XWVXLOMD1" class="footer-contact-link">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 20px; height: 20px; ">
-                        +94713071106
+                        WhatsApp
                     </a>
                 </div>
 
@@ -926,31 +618,77 @@
         </div>
     </div>
 
-    <!-- =========================================
-         MOBILE BOTTOM NAVIGATION (Apple Style)
-    ========================================= -->
-    <nav class="mobile-bottom-nav">
-        <!-- The sliding liquid glass pill -->
-        <div class="nav-indicator"></div>
+<!-- =========================================
+    MOBILE FLOATING FLOATING NAVIGATION BAR
+========================================= -->
+<nav id="floatingNav" class="floating-nav-bar">
+    <div class="nav-pill-container">
         
-        <a href="#home" class="active" data-i18n="nav_home">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-            <span>Home</span>
+        <!-- 1. Home -->
+        <a href="index.html" class="nav-item active" onclick="setActiveNav(this)">
+            <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.12 510.95" width="24px" height="24px" fill="currentColor">
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <path d="M378.74,419.61c-3.94-7.03-8.69-13.12-14.26-18.3-5.59-5.16-11.89-9.61-18.92-13.34-11.16-6.2-23.16-9.3-35.97-9.3-1.67,0-3.32.05-4.95.15-11.34.68-21.88,3.73-31.64,9.16-14.06,7.86-25.11,18.3-33.18,31.32-8.06,13.02-12.09,32.36-12.09,57.99v3.1c0,8.68-3.1,16.03-9.3,22.02-4.55,4.39-9.77,7.17-15.64,8.34h114.28c.76.12,1.54.2,2.35.2l71.44-.17v-33.5c0-12.81-1.04-23.88-3.1-33.18-2.08-9.3-5.08-17.47-8.99-24.5Z"/>
+      <path d="M497.19,222.15L288.91,13.8c-8.64-8.65-15.36-9.68-24.43-13.8h-17.96c-10.76,4.89-14.06,4.24-24.45,13.79L13.28,222.56c-9.08,10.16-8.6,13.6-13.28,23.96v17.96c.51.34,1.03.89,1.28,1.92,5.47,22.7,26.2,37.62,49.58,36.06,2.81-.19,3.85,1.37,3.85,4.06l.05,149.24c0,27.73,19.22,49.4,46.64,54.99l34.66.07c.11-.02.22-.05.33-.07,5.89-1.17,11.11-3.94,15.67-8.34,6.2-5.99,9.3-13.34,9.3-22.02v-3.1c0-28.53,5.58-54.58,16.74-78.15,11.16-23.57,28.94-42.79,53.34-57.68-1.66-1.24-3.21-2.58-4.65-4.03-1.46-1.44-3.01-2.79-4.66-4.03-14.06-13.23-25.02-27.91-32.87-44.04-7.85-16.12-12.61-35.35-14.26-57.68-.82-8.27,1.65-15.4,7.45-21.4,5.79-5.99,12.81-8.99,21.08-8.99h36.6v11.78c0,23.57,3.5,41.86,10.54,54.89,7.03,13.03,16.53,23.67,28.53,31.94,8.69,6.2,18.61,9.3,29.77,9.3s21.29-3.1,30.39-9.3c10.34-7.03,18.82-15.61,25.43-25.74,6.61-10.12,10.75-24.28,12.41-42.49l.63-1.24v-1.24c.81-7.85,4.12-14.47,9.92-19.85,5.79-5.37,12.81-8.06,21.08-8.06h35.36v11.78c.4,26.47-3.41,49.3-11.48,68.54-8.06,19.22-20.15,36.49-36.29,51.78-1.65,1.24-3.21,2.59-4.65,4.03-1.45,1.45-3.01,2.79-4.66,4.03,24.39,14.89,42.18,34.11,53.34,57.68,8.42,17.78,13.67,36.98,15.74,57.59,0-.39.03-.77.03-1.16l.04-149.05c0-2.73,1.07-4.23,3.91-4.05,23.99,1.54,44.86-13.98,49.97-37.77,3.24-15.08-1.66-31.26-12.95-42.56Z"/>
+    </g>
+  </g>
+</svg>
         </a>
-      
-        <a href="#experience" data-i18n="nav_exp">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-            <span>Experience</span>
+        
+        <!-- 2. Experience (Suitcase) -->
+        <a href="#experience" class="nav-item" onclick="setActiveNav(this)">
+            <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 521.53 490.01" width="22px" height="22px" fill="currentColor">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <path d="M491.42,276.52v19.32c-3.96,30.08-19.01,57.55-45.68,74.71l-.98,119.47h-.2c-.22-1.16-1.07-1.92-2.22-2.96l-51.09-45.85-54.11,48.46-.22-118.37c-40.89-26.04-57.29-76.41-39.97-121.16,16.83-43.5,62.06-70.22,109.47-62.89,45.19,6.99,79.26,43.54,85.01,89.27Z"/>
+      <g>
+        <rect class="cls-1" x="73.75" y="187.08" width="159.22" height="62.22" rx="31.11" ry="31.11"/>
+        <rect class="cls-1" x="73.75" y="79.63" width="220.44" height="62.22" rx="31.11" ry="31.11"/>
+        <path d="M244.92,291.19c0-80.79,65.49-146.28,146.28-146.28,56.85,0,106.12,32.43,130.33,79.8V96.51c0-31.88-19.11-59.15-45.07-76.62-12.94-9.24-28.13-15.73-44.92-18.69-2.6-.5-5.2-.91-7.8-1.21h-162.98S97.79,0,97.79,0c-2.6.3-5.2.71-7.8,1.21-16.79,2.96-31.98,9.44-44.92,18.68C19.11,37.37,0,64.64,0,96.51v222.64c6.46,54.81,51.05,97.23,108.18,97.21l152.58-.05,54.66.02c-42.26-25.65-70.5-72.1-70.5-125.15ZM73.75,110.74c0-17.11,14-31.11,31.11-31.11h158.22c17.11,0,31.11,14,31.11,31.11h0c0,17.11-14,31.11-31.11,31.11H104.86c-17.11,0-31.11-14-31.11-31.11h0ZM232.97,218.19c0,17.11-14,31.11-31.11,31.11h-97c-17.11,0-31.11-14-31.11-31.11h0c0-17.11,14-31.11,31.11-31.11h97c17.11,0,31.11,14,31.11,31.11h0Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
         </a>
-        <a href="#services" data-i18n="nav_services">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 12 12 17 22 12"></polyline><polyline points="2 17 12 22 22 17"></polyline></svg>
-            <span>Services</span>
+        
+        <!-- 3. Services (Gear) -->
+        <a href="services.html" class="nav-item" onclick="setActiveNav(this)">
+            <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 585.09 496" width="24px" height="24px" fill="currentColor">
+            <g id="Layer_1-2" data-name="Layer 1">
+                <g>
+                <path d="M373.04,319.76c-22.53,7.42-39.46,22.64-48.9,43.85-41.98,15.9-77.1,43.91-102.28,81.28-23.83,35.35-64.4,54.47-107.17,49.76-39.49-4.35-75.79-30.1-91.42-67.39C-43.46,268.12,38.66,85.76,201.49,29.59c93.35-32.2,197.98-15.96,277.97,44.7l-100.31,217.26c-4.16,9.02-5.87,17.25-6.11,28.21ZM388.13,120.73c0-28.1-22.78-50.87-50.87-50.87s-50.87,22.78-50.87,50.87,22.78,50.87,50.87,50.87,50.87-22.78,50.87-50.87ZM235.4,165.28c0-28.1-22.78-50.87-50.87-50.87s-50.87,22.78-50.87,50.87,22.78,50.87,50.87,50.87,50.87-22.78,50.87-50.87ZM171.76,311.64c0-28.1-22.78-50.87-50.87-50.87s-50.87,22.78-50.87,50.87,22.78,50.87,50.87,50.87,50.87-22.78,50.87-50.87Z"/>
+                <g>
+                    <path d="M344.77,449.84l-4.19-28.41c-1.96-17.72.3-35.02,8.53-50.86,11.12-21.39,34.08-32.26,59.01-27.81-10.17-12.43-12.05-27.23-5.37-41.69L535.87,13.12c5.49-11.87,19.45-15.89,30.38-11.21,11.1,4.75,17.53,17.34,12.98,29.71l-109.59,297.9c-5.95,16.18-19.99,25.16-38.06,24.86,20.36,18.28,24.01,44.58,12.17,67.91-20.44,40.27-58.9,68.72-105.1,73.72,5.98-15.72,8.47-30.27,6.12-46.16Z"/>
+                    <path d="M483.69,357.09c3.37-6.61,7.27-11.8,9.91-18.96l64.39-174.89c8.44,13.27,14.8,26.92,20.22,42.04,12.1,33.74,8.41,70.62-12.36,102.06-17.17,25.98-46.82,46.12-82.15,49.76Z"/>
+                </g>
+                </g>
+            </g>
+            </svg>
         </a>
-        <a href="#portfolio" data-i18n="nav_portfolio">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-            <span>Portfolio</span>
+        
+        <!-- 4. Portfolio (Photo Grid) -->
+        <a href="portfolio.html" class="nav-item" onclick="setActiveNav(this)">
+            <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 539.31 476.32" width="24px" height="24px" fill="currentColor">
+                <g id="Layer_1-2" data-name="Layer 1">
+                    <g>
+                    <path d="M432.32,90.54H106.99C47.9,90.54,0,138.44,0,197.53v171.81c0,59.09,47.9,106.99,106.99,106.99h325.33c59.09,0,106.99-47.9,106.99-106.99v-171.81c0-59.09-47.9-106.99-106.99-106.99ZM250.42,131.88c8.04-11.66,21.49-19.31,36.73-19.31s28.7,7.65,36.73,19.31c4.94,7.17,7.85,15.86,7.85,25.23,0,24.6-19.96,44.55-44.58,44.55s-44.58-19.95-44.58-44.55c0-9.37,2.9-18.06,7.85-25.23ZM493.95,377.22c0,41.72-33.82,75.55-75.55,75.55H120.9c-28.35,0-53.05-15.62-65.97-38.73-5.5-9.84-4.38-22.04,2.77-30.75l76.32-92.84c14.87-18.09,40.87-18.73,56.25-1.17l72.9,85.64c13,15.27,35.98,14.74,48.86-.39l73.01-85.76c13.76-16.16,39.23-17.86,53.79-.68l48.61,57.34c4.2,4.95,6.5,11.23,6.5,17.72v14.07Z"/>
+                    <path d="M440.19,67.28c0-14.73-11.94-26.67-26.67-26.67H114.86c-14.73,0-26.67,11.94-26.67,26.67v7.16h352v-7.16Z"/>
+                    <path d="M406.71,26.67c0-14.73-11.94-26.67-26.67-26.67h-231.7c-14.73,0-26.67,11.94-26.67,26.67h0s285.04,0,285.04,0h0Z"/>
+                    </g>
+                </g>
+                </svg>
         </a>
-    </nav>
+        
+    </div>
+</nav>
 
     <!-- =========================================
          FLOATING WIDGETS

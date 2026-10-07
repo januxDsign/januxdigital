@@ -232,7 +232,7 @@ function openServiceXpop(serviceId) {
                         ${benefitsHtml}
                     </ul>
                     
-                    <a href="https://dribbble.com/janaka-wijerathna/collections" class="xpop-portfolio-btn" onclick="closeServiceXpop()">
+                    <a href="portfolio.html" class="xpop-portfolio-btn" onclick="closeServiceXpop()">
                         View My Portfolio ↗
                     </a>
                 </div>
@@ -429,37 +429,13 @@ function initAllScripts() {
         });
     });
 
-    // ==========================================
-    // Mobile Bottom Nav - Liquid Glass Slider
-    // ==========================================
-    const bottomNavLinks = document.querySelectorAll('.mobile-bottom-nav a');
-    const navIndicator = document.querySelector('.nav-indicator');
+    // =========================================
+    // SLIDING BOTTOM NAV INDICATOR
+    // =========================================
+    const navLinks = document.querySelectorAll('.mobile-bottom-nav a');
+    const indicator = document.querySelector('.nav-indicator');
 
-    function updateNavIndicator(element) {
-        // Prevent errors on desktop where the indicator is hidden
-        if (!navIndicator || !element || window.innerWidth > 767) return; 
-        
-        const offsetLeft = element.offsetLeft;
-        const width = element.offsetWidth;
-        
-        navIndicator.style.transform = `translateX(${offsetLeft}px)`;
-        navIndicator.style.width = `${width}px`;
-    }
-
-    // Safely set initial position on load for mobile devices
-    if (navIndicator && window.innerWidth <= 767) {
-        const activeMobileLink = document.querySelector('.mobile-bottom-nav a.active');
-        // Slight delay ensures the DOM has painted before measuring the pill width
-        setTimeout(() => updateNavIndicator(activeMobileLink), 250); 
-    }
-
-    bottomNavLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            bottomNavLinks.forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
-            updateNavIndicator(this);
-        });
-    });
+    
 
 }
 
@@ -543,3 +519,196 @@ async function handleChatSubmit(event) {
     }
 
 }
+
+// =========================================
+// PORTFOLIO FILTERING & LOAD MORE LOGIC
+// =========================================
+let currentLimit = 20; // Number of items to show initially
+
+function filterPortfolio(category, clickedButton) {
+    currentLimit = 20; // Reset back to 20 items when switching categories
+    
+    // 1. Remove 'active' class from all buttons
+    const buttons = document.querySelectorAll('.portfolio-filters-grid .filter-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    
+    // 2. Add 'active' class to the clicked button
+    if (clickedButton) clickedButton.classList.add('active');
+
+    // 3. Apply category filter
+    const items = document.querySelectorAll('.grid-item');
+    items.forEach(item => {
+        const itemCategory = item.getAttribute('data-category');
+        
+        // Check if item matches category
+        if (category === 'all' || itemCategory === category) {
+            item.classList.remove('hide-category');
+        } else {
+            item.classList.add('hide-category');
+        }
+    });
+
+    // 4. Run pagination to limit visible items to 20
+    applyPagination();
+}
+
+function applyPagination() {
+    // Get all items that match the current category (not hidden by category filter)
+    const visibleItems = document.querySelectorAll('.grid-item:not(.hide-category)');
+    const loadMoreBtn = document.getElementById('load-more-btn');
+
+    // Loop through the matching items
+    visibleItems.forEach((item, index) => {
+        if (index < currentLimit) {
+            item.classList.remove('hide-pagination'); // Show it
+        } else {
+            item.classList.add('hide-pagination'); // Hide it because it's over the limit
+        }
+    });
+
+    // Show or hide the "Load More" button depending on if there are more items left to show
+    if (loadMoreBtn) {
+        if (visibleItems.length > currentLimit) {
+            loadMoreBtn.style.display = 'block';
+        } else {
+            loadMoreBtn.style.display = 'none';
+        }
+    }
+}
+
+function loadMoreItems() {
+    currentLimit += 20; // Add 20 more items to the limit
+    applyPagination();  // Re-run the pagination function
+}
+
+// Run the pagination function as soon as the page loads to cap the initial view at 20
+document.addEventListener("DOMContentLoaded", () => {
+    applyPagination();
+});
+
+// Function to shuffle grid items randomly
+function shufflePortfolio() {
+    const grid = document.querySelector('.portfolio-tight-grid');
+    if (!grid) return;
+    
+    // Get all portfolio items and convert them into an array
+    const items = Array.from(grid.querySelectorAll('.grid-item'));
+    
+    // Fisher-Yates Shuffle Algorithm (Randomizes the array)
+    for (let i = items.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [items[i], items[j]] = [items[j], items[i]];
+    }
+    
+    // Re-add them to the grid in the new random order
+    items.forEach(item => grid.appendChild(item));
+}
+
+// Run the shuffle and pagination as soon as the page loads
+document.addEventListener("DOMContentLoaded", () => {
+    shufflePortfolio(); // Randomize the images first
+    applyPagination();  // Then slice them to show only the first 20
+});
+
+// =========================================
+// CLICK TO ENLARGE (LIGHTBOX) LOGIC
+// =========================================
+
+let currentImageIndex = 0;
+let portfolioImages = [];
+
+document.addEventListener("DOMContentLoaded", () => {
+    updateGalleryImages();
+});
+
+function updateGalleryImages() {
+    // Collects only images from grid items that are currently visible (respecting active category filters)
+    const imgElements = document.querySelectorAll('.portfolio-tight-grid .grid-item:not(.hide-category):not(.hide-pagination) img');
+    portfolioImages = Array.from(imgElements).map(img => img.src);
+}
+
+function openImageModal(imgSrc) {
+    updateGalleryImages(); // Refresh to match currently filtered items
+    currentImageIndex = portfolioImages.indexOf(imgSrc);
+    
+    // Fallback if exact match isn't found in filtered array
+    if (currentImageIndex === -1) {
+        currentImageIndex = 0;
+    }
+    
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    
+    modalImg.src = portfolioImages[currentImageIndex] || imgSrc;
+    modal.classList.add("active");
+}
+
+function changeSlide(direction, event) {
+    if (event) event.stopPropagation(); // Stop click from bubbling up to overlay
+    
+    if (portfolioImages.length === 0) return;
+    
+    currentImageIndex += direction;
+    
+    // Loop around bounds
+    if (currentImageIndex >= portfolioImages.length) {
+        currentImageIndex = 0;
+    } else if (currentImageIndex < 0) {
+        currentImageIndex = portfolioImages.length - 1;
+    }
+    
+    document.getElementById("modalImage").src = portfolioImages[currentImageIndex];
+}
+
+function closeImageModal(event) {
+    // Close only if clicking the dark overlay background itself
+    if (event.target.id === 'imageModal') {
+        closeImageModalDirect();
+    }
+}
+
+function closeImageModalDirect() {
+    const modal = document.getElementById("imageModal");
+    modal.classList.remove("active");
+}
+
+// Keyboard support (Left/Right arrows to slide, Esc to close)
+document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById("imageModal");
+    if (modal && modal.classList.contains("active")) {
+        if (e.key === "ArrowLeft") {
+            changeSlide(-1);
+        } else if (e.key === "ArrowRight") {
+            changeSlide(1);
+        } else if (e.key === "Escape") {
+            closeImageModalDirect();
+        }
+    }
+});
+
+// Handle Active State on Tap
+function setActiveNav(element) {
+    const items = document.querySelectorAll('.nav-item');
+    items.forEach(item => item.classList.remove('active'));
+    element.classList.add('active');
+}
+
+// Zoom out navigation bar slightly when scrolling down
+let lastScrollTop = 0;
+const floatingNav = document.getElementById('floatingNav');
+
+window.addEventListener('scroll', () => {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > 50) {
+        // Zoom out / shrink slightly when scrolled down past 50px
+        floatingNav.classList.add('scrolled');
+    } else {
+        // Return to normal scale near the very top
+        floatingNav.classList.remove('scrolled');
+    }
+    
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+}, { passive: true });
+
+
