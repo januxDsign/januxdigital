@@ -254,7 +254,7 @@ nav a:hover::after, nav a.active::after {
     
     /* Background Image Properties */
     background-image: url('assets/bgtop.webp');
-    background-size: cover;          /* Forces it to fill the entire width and height */
+    background-size: cover;         
     background-position: center top; 
     background-repeat: no-repeat;
 }
@@ -972,20 +972,20 @@ nav a:hover::after, nav a.active::after {
 .service-item-card {
     display: flex;
     flex-direction: column;
-    background: #111111; /* Solid dark background matching the image */
+    background: var(--bg-main);
     border: 1px solid rgba(91, 205, 90, 0.15); /* Subtle green outer tint */
     border-radius: 24px;
     padding: 20px;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.048);
     aspect-ratio: 1 / 1; 
 }
 
 .service-item-card:hover {
     border-color: rgba(91, 205, 90, 0.5);
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(91, 205, 90, 0.05);
+    box-shadow: 0 15px 35px rgba(36, 36, 36, 0.247), inset 0 0 20px rgba(91, 205, 90, 0.05);
 }
 
 /* Image acts as a banner spanning the top with padding */
@@ -1018,13 +1018,13 @@ nav a:hover::after, nav a.active::after {
 .svc-card-content h4 {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--text-main);
     margin: 0 0 12px 0;
 }
 
 .svc-card-desc {
     font-size: 0.85rem;
-    color: #a0a0a0;
+    color: var(--text-muted);
     line-height: 1.5;
     margin: 0;
     display: -webkit-box;
@@ -1056,14 +1056,16 @@ nav a:hover::after, nav a.active::after {
 }
 
 .service-item-card:hover .btn-view-details {
-    background: rgba(91, 205, 90, 0.1);
+    background: var(--accent-green);
+    color: var(--bg-main);
+      
 }
 
 /* Large Price Text Styling */
 .svc-price-large {
     font-size: 2.0rem;
     font-weight: 800;
-    color: #0ef76f;
+    color: var(--accent-green);
     line-height: 1;
     display: flex;
     align-items: baseline; /* Keeps the "starting price" locked to the bottom of the $69 */
@@ -1072,7 +1074,7 @@ nav a:hover::after, nav a.active::after {
 
 .svc-price-large span {
     font-size: 0.65rem;
-    color: #a0a0a0;
+    color: var(--text-muted);
     font-weight: 400;
 }
 
@@ -1505,9 +1507,9 @@ nav a:hover::after, nav a.active::after {
 
 .load-more-btn {
     width: 100%; /* Spans the full width of the container */
-    background: #001b0480; /* Dark grey matching reference */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Thin subtle border */
-    color: #ffffff;
+    background: var(--btn-bg) transparent 5%; /* Dark grey matching reference */
+    border: 1px solid var(--glass-border); /* Thin subtle border */
+    color: var(--text-main);
     padding: 14px 0;
     border-radius: 8px; /* Slight rounded corners */
     font-size: 0.85rem;
@@ -1517,8 +1519,8 @@ nav a:hover::after, nav a.active::after {
 }
 
 .load-more-btn:hover {
-    background: #001b048f;
-    border-color: rgba(91, 205, 90, 0.4);
+    background: var(--btn-hover);
+    border-color: var(--accent-green);
     color: var(--accent-green);
 }
 
