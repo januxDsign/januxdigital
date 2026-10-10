@@ -27,6 +27,7 @@ function initTheme() {
 initTheme();
 
 
+
 // ==========================================
 // 1. DATABASE OBJECTS
 // ==========================================
@@ -446,79 +447,6 @@ if (document.readyState === "loading") {
     initAllScripts();
 }
 
-// ==========================================
-// 5. AI CHATBOT FUNCTIONALITY (Backend Connected)
-// ==========================================
-let chatHistory = [];
-
-function toggleChatbot() {
-    const chatbot = document.getElementById('chatbot-widget');
-    chatbot.classList.toggle('active');
-    if (chatbot.classList.contains('active')) {
-        document.getElementById('chatbot-input').focus();
-    }
-}
-
-function appendChatBubble(text, sender) {
-    const container = document.getElementById('chatbot-messages');
-    const bubble = document.createElement('div');
-    bubble.className = `chat-bubble ${sender}`;
-    bubble.textContent = text;
-    container.appendChild(bubble);
-    container.scrollTop = container.scrollHeight;
-}
-
-async function handleChatSubmit(event) {
-    event.preventDefault();
-    const input = document.getElementById('chatbot-input');
-    const userMsg = input.value.trim();
-    if (!userMsg) return;
-
-    // Display User Message
-    appendChatBubble(userMsg, 'user');
-    input.value = '';
-
-    // Typing indicator
-    const typingBubble = document.createElement('div');
-    typingBubble.className = 'chat-bubble bot';
-    typingBubble.id = 'bot-typing';
-    typingBubble.textContent = 'Thinking...';
-    document.getElementById('chatbot-messages').appendChild(typingBubble);
-
-    try {
-        // Fetch response from your backend server
-        // (Change the URL if you host your backend elsewhere)
-        const response = await fetch('/api/chat', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                history: chatHistory,
-                message: userMsg
-            })
-        });
-
-        const data = await response.json();
-        document.getElementById('bot-typing')?.remove();
-
-        if (data.response) {
-            appendChatBubble(data.response, 'bot');
-            
-            // Save to history for context
-            chatHistory.push({ role: 'user', text: userMsg });
-            chatHistory.push({ role: 'bot', text: data.response });
-        } else {
-            appendChatBubble("Sorry, I'm having trouble connecting right now.", 'bot');
-        }
-
-    } catch (error) {
-        console.error('Chat error:', error);
-        document.getElementById('bot-typing')?.remove();
-        appendChatBubble("I'm currently offline. Please email januxdig@gmail.com directly.", 'bot');
-    }
-
-}
 
 // =========================================
 // PORTFOLIO FILTERING & LOAD MORE LOGIC
